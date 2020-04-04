@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.frame = UIScreen.main.bounds
         window?.backgroundColor = .white
-        let vc = WBMainViewController()
         
         window?.rootViewController = WBMainViewController()
         
