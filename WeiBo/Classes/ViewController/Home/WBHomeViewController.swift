@@ -21,8 +21,15 @@ class WBHomeViewController: WBBaseViewController {
     
     // 重写加载数据方法
     override func loadData() {
-        for i in 0..<25 {
-            statusList.insert(i.description, at: 0)
+        
+        // 设置延迟加载数据
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+            for i in 0..<25 {
+                self.statusList.insert(i.description, at: 0)
+            }
+            
+            // 表格视图重新加载数据
+            self.tableView?.reloadData()
         }
     }
 
