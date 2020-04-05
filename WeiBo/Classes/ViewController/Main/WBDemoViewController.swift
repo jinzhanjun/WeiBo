@@ -14,8 +14,6 @@ class WBDemoViewController: WBBaseViewController {
         super.viewDidLoad()
         
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", target: self, action: #selector(showNext), event: .touchUpInside)
-        
-//        navBar.item
     }
     
     @objc private func showNext() {

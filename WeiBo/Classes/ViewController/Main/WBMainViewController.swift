@@ -21,11 +21,19 @@ class WBMainViewController: UITabBarController {
         addComposeBtn()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    
+    //MARK: - 设置界面
     private func setupUI() {
         // 添加子控制器
         addChildControllers()
     }
     
+    
+    /// 添加子控制器
     private func addChildControllers() {
         classDic.forEach{ addChild(childController(with: $0)) }
         
@@ -76,7 +84,7 @@ extension WBMainViewController {
         var font: UIFont {
             return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body)).withSize(12)
         }
-        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange, NSAttributedString.Key.font: font], for: .highlighted)
+        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange, NSAttributedString.Key.font: font], for: .normal)
         let vc = WBNavController(rootViewController: cls)
         return vc
     }
