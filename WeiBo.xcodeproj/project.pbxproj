@@ -35,6 +35,7 @@
 		7B5258232438525D00F22453 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5258222438525D00F22453 /* UIBarButtonItem+Extension.swift */; };
 		7B5258252438A6B000F22453 /* WBNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5258242438A6B000F22453 /* WBNavBar.swift */; };
 		7B525827243B56BE00F22453 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B525826243B56BE00F22453 /* WBVisitorView.swift */; };
+		7B5DDAF5243B7F830067BA7C /* mian.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DDAF4243B7F830067BA7C /* mian.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		7B5258222438525D00F22453 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		7B5258242438A6B000F22453 /* WBNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavBar.swift; sourceTree = "<group>"; };
 		7B525826243B56BE00F22453 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
+		7B5DDAF4243B7F830067BA7C /* mian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mian.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		7B5257C124378C1800F22453 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7B5DDAF4243B7F830067BA7C /* mian.json */,
 				7B5257C224378D6600F22453 /* WBMainViewController.swift */,
 				7B5257C424378D9000F22453 /* WBNavController.swift */,
 				7B5257C624378DA600F22453 /* WBBaseViewController.swift */,
@@ -319,6 +322,7 @@
 			files = (
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
 				7B5257AE2437889100F22453 /* Assets.xcassets in Resources */,
+				7B5DDAF5243B7F830067BA7C /* mian.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

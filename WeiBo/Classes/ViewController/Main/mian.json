@@ -1,0 +1,41 @@
+[
+  {
+    "clsName" : "WBHomeViewController",
+    "visitoViewInfo" : {
+      "message" : "关注一些人，能够看到他们的往事！",
+      "imageName" : ""
+    },
+    "title" : "首页",
+    "imageName" : "home"
+  },
+  {
+    "visitoViewInfo" : {
+      "message" : "关注一些人，能够看到他们的往事！",
+      "imageName" : "visitordiscover_image_message"
+    },
+    "title" : "发现",
+    "clsName" : "WBDiscoverViewController",
+    "imageName" : "discover"
+  },
+  {
+    "clsName" : "ViewController"
+  },
+  {
+    "imageName" : "message_center",
+    "visitoViewInfo" : {
+      "imageName" : "visitordiscover_image_message",
+      "message" : "关注一些人，能够看到他们的往事！"
+    },
+    "clsName" : "WBMessageViewController",
+    "title" : "消息"
+  },
+  {
+    "imageName" : "profile",
+    "title" : "我",
+    "clsName" : "WBProfileViewController",
+    "visitoViewInfo" : {
+      "imageName" : "visitordiscover_image_profile",
+      "message" : "关注一些人，能够看到他们的往事！"
+    }
+  }
+]

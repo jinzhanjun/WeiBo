@@ -58,13 +58,23 @@ extension WBMainViewController {
     
     
     var classDic: [[String: Any]] {
-        return [
-            ["clsName": "WBHomeViewController", "title": "首页", "imageName": "home", "visitoViewInfo": ["imageName": "", "message": "关注一些人，能够看到他们的往事！"]],
-            ["clsName": "WBDiscoverViewController", "title": "发现", "imageName": "discover", "visitoViewInfo": ["imageName": "visitordiscover_image_message", "message": "关注一些人，能够看到他们的往事！"]],
-            ["clsName": "ViewController"],
-            ["clsName": "WBMessageViewController", "title": "消息", "imageName": "message_center", "visitoViewInfo": ["imageName": "visitordiscover_image_message", "message": "关注一些人，能够看到他们的往事！"]],
-            ["clsName": "WBProfileViewController", "title": "我", "imageName": "profile", "visitoViewInfo": ["imageName": "visitordiscover_image_profile", "message": "关注一些人，能够看到他们的往事！"]]
-        ]
+        // 从沙盒中加载
+        // 1> 获取沙盒路径
+        guard var sandBoxUrl = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return [] }
+        sandBoxUrl.appendPathComponent("main.json")
+        // 2> 获取data
+        var data = try? Data(contentsOf: sandBoxUrl)
+        
+        // 如果从没有从网络获取到数据
+        if data == nil {
+            // 直接从Bundle中加载
+            let path = Bundle.main.path(forResource: "mian.json", ofType: nil)
+            data = try! NSData(contentsOfFile: path!) as Data
+        }
+
+        // 3> 反序列化，转为APP信息字典
+        let array = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String: Any]]
+        return array!
     }
     
     
