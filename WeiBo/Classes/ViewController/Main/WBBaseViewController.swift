@@ -12,10 +12,16 @@ private let cellID = "cellID"
 
 class WBBaseViewController: UIViewController {
     
+    // 配置访客视图信息字典
+    var visitorInfoDic: [String: String]?
+    
     // 自定义导航条
     lazy var navBar = WBNavBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 88))
     // 自定义导航条目
     lazy var navItem = UINavigationItem()
+    
+    // 标记是否登录
+    var userLogon = false
     
     // 是否上拉刷新
     var isPullUp = false
@@ -45,12 +51,12 @@ class WBBaseViewController: UIViewController {
     /// 设置界面
     func setupUI() {
         
-        // 禁止自动缩进
-//        automaticallyAdjustsScrollViewInsets = false
+        
         // 设置导航栏
         setupNavBar()
-        // 设置表格
-        setupTabelView()
+        
+        // 根据是否登录，来确定加载哪一个界面
+        userLogon ? setupTabelView() : setupVisitorView()
         
         // 加载数据
         loadData()
@@ -59,7 +65,7 @@ class WBBaseViewController: UIViewController {
     /// 加载数据
     @objc func loadData() {
         
-        // 结束刷新
+        // 如果子类不实现任何数据方法，就结束刷新
         refreshController?.endRefreshing()
     }
     
@@ -71,6 +77,27 @@ class WBBaseViewController: UIViewController {
         navBar.tintColor = UIColor.orange
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         view.addSubview(navBar)
+    }
+    
+    /// 登录界面
+    private func setupVisitorView() {
+        let visitorView = WBVisitorView(frame: view.bounds)
+        
+        // 根据字典配置内容
+        visitorView.infoDic = visitorInfoDic
+        
+        // 设置背景颜色
+        visitorView.backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
+        
+        
+        // 将访客视图中的每一个子视图都取消 ”translatesAutoresizingMaskIntoConstraints“
+        // 系统默认赋予控件autoresizing约束
+        visitorView.subviews.forEach{ $0.translatesAutoresizingMaskIntoConstraints = false }
+
+        
+        // 插入视图至导航条下面
+        view.insertSubview(visitorView, belowSubview: navBar)
+
     }
     
     /// 表格
@@ -103,6 +130,7 @@ class WBBaseViewController: UIViewController {
         tableView?.addSubview(refreshController!)
         
     }
+    
 }
 
 //MARK: - tableDelegate & tableDataSource （添加数据源方法，具体由子类实现）

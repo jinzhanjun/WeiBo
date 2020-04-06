@@ -36,7 +36,6 @@ class WBMainViewController: UITabBarController {
     /// 添加子控制器
     private func addChildControllers() {
         classDic.forEach{ addChild(childController(with: $0)) }
-        
     }
     
     @objc private func compose() {
@@ -58,36 +57,42 @@ extension WBMainViewController {
     }
     
     
-    var classDic: [[String: String]] {
+    var classDic: [[String: Any]] {
         return [
-            ["clsName": "WBHomeViewController", "title": "首页", "imageName": "home"],
-            ["clsName": "WBDiscoverViewController", "title": "发现", "imageName": "discover"],
+            ["clsName": "WBHomeViewController", "title": "首页", "imageName": "home", "visitoViewInfo": ["imageName": "", "message": "关注一些人，能够看到他们的往事！"]],
+            ["clsName": "WBDiscoverViewController", "title": "发现", "imageName": "discover", "visitoViewInfo": ["imageName": "visitordiscover_image_message", "message": "关注一些人，能够看到他们的往事！"]],
             ["clsName": "ViewController"],
-            ["clsName": "WBMessageViewController", "title": "消息", "imageName": "message_center"],
-            ["clsName": "WBProfileViewController", "title": "我", "imageName": "profile"]
+            ["clsName": "WBMessageViewController", "title": "消息", "imageName": "message_center", "visitoViewInfo": ["imageName": "visitordiscover_image_message", "message": "关注一些人，能够看到他们的往事！"]],
+            ["clsName": "WBProfileViewController", "title": "我", "imageName": "profile", "visitoViewInfo": ["imageName": "visitordiscover_image_profile", "message": "关注一些人，能够看到他们的往事！"]]
         ]
     }
     
     
-    private func childController(with dic: [String: String]) -> UIViewController {
+    private func childController(with dic: [String: Any]) -> UIViewController {
         
-        guard let clsNameString = dic["clsName"],
-            let title = dic["title"],
-            let imageName = dic["imageName"],
+        guard let clsNameString = dic["clsName"] as? String,
+            let title = dic["title"] as? String,
+            let imageName = dic["imageName"] as? String,
+            let visitorInfoDic = dic["visitoViewInfo"] as? [String: String] ,
             let clsName = NSClassFromString(Bundle.nameSpace + clsNameString) as? WBBaseViewController.Type
             else { return UIViewController()}
 
         let cls = clsName.init()
+        
+        // 设置访客视图信息字典
+        cls.visitorInfoDic = visitorInfoDic
         
         cls.title = title
         cls.tabBarItem = UITabBarItem(title: title, image: UIImage(named: "tabbar_" + imageName), selectedImage: UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal))
         var font: UIFont {
             return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body)).withSize(12)
         }
-        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange, NSAttributedString.Key.font: font], for: .normal)
+        // 设置tabBar标题字体大小
+        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        
+        // 设置tabBar标题颜色
+        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .selected)
         let vc = WBNavController(rootViewController: cls)
         return vc
     }
-    
-    
 }

@@ -34,6 +34,7 @@
 		7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52581F243841B300F22453 /* WBDemoViewController.swift */; };
 		7B5258232438525D00F22453 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5258222438525D00F22453 /* UIBarButtonItem+Extension.swift */; };
 		7B5258252438A6B000F22453 /* WBNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5258242438A6B000F22453 /* WBNavBar.swift */; };
+		7B525827243B56BE00F22453 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B525826243B56BE00F22453 /* WBVisitorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		7B52581F243841B300F22453 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		7B5258222438525D00F22453 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		7B5258242438A6B000F22453 /* WBNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavBar.swift; sourceTree = "<group>"; };
+		7B525826243B56BE00F22453 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				7B5257C624378DA600F22453 /* WBBaseViewController.swift */,
 				7B52581F243841B300F22453 /* WBDemoViewController.swift */,
 				7B5258242438A6B000F22453 /* WBNavBar.swift */,
+				7B525826243B56BE00F22453 /* WBVisitorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				7B5257CD24378DEF00F22453 /* WBMessageViewController.swift in Sources */,
 				7B52581D2438331C00F22453 /* NSArray+Log.m in Sources */,
 				7B5258182438331C00F22453 /* UIButton+CZAddition.m in Sources */,
+				7B525827243B56BE00F22453 /* WBVisitorView.swift in Sources */,
 				7B5257C324378D6600F22453 /* WBMainViewController.swift in Sources */,
 				7B5258142438331C00F22453 /* UIScreen+CZAddition.m in Sources */,
 				7B5257C724378DA600F22453 /* WBBaseViewController.swift in Sources */,

@@ -28,7 +28,6 @@ class WBHomeViewController: WBBaseViewController {
                 if self.isPullUp {
                     self.statusList.append("上拉刷新\(i.description)")
                 } else {
-                    
                     self.statusList.insert(i.description, at: 0)
                 }
             }
