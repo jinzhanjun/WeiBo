@@ -23,11 +23,20 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         // 设置延迟加载数据
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             for i in 0..<25 {
-                self.statusList.insert(i.description, at: 0)
+                if self.isPullUp {
+                    self.statusList.append("上拉刷新\(i.description)")
+                } else {
+                    
+                    self.statusList.insert(i.description, at: 0)
+                }
             }
             
+            // 恢复上拉标记
+            self.isPullUp = false
+            // 停止刷新控件
+            self.refreshController?.endRefreshing()
             // 表格视图重新加载数据
             self.tableView?.reloadData()
         }

@@ -17,6 +17,9 @@ class WBBaseViewController: UIViewController {
     // 自定义导航条目
     lazy var navItem = UINavigationItem()
     
+    // 是否上拉刷新
+    var isPullUp = false
+    
     // 表格
     var tableView: UITableView?
     // 刷新控制器
@@ -56,6 +59,8 @@ class WBBaseViewController: UIViewController {
     /// 加载数据
     @objc func loadData() {
         
+        // 结束刷新
+        refreshController?.endRefreshing()
     }
     
     /// 导航栏
@@ -110,5 +115,24 @@ extension WBBaseViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if tableView.numberOfSections < 0 {
+            return
+        }
+        
+        // 判断显示的cell是否为最后一个section和 最大的row
+        let section = tableView.numberOfSections - 1
+        let row = tableView.numberOfRows(inSection: section) - 1
+        
+        // 如果即将显示最后一组的最后一个row
+        if indexPath.section == section && indexPath.row == row {
+            
+            // 上拉刷新标记
+            isPullUp = true
+            
+            // 加载数据
+            loadData()
+        }
+    }
 }
