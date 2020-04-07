@@ -19,16 +19,18 @@ class WBNetWorkingController: AFHTTPSessionManager {
     // 创建单例，存储在静态区（常量区），无论哪个控制器访问，都是同一个地址
     static let shared = WBNetWorkingController()
     
-//
-//    let parameters = ["access_token": "2.00LGIqRE0_Qink518ec8b393lxPQLC"]
-    
-    
-    
     // 封装一个专门做新浪微博请求的方法
-    func requestWeiBo(parameters: [String: String], complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
+    func requestWeiBo(parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
+        
         // 请求地址
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        request(URLString: url, parameters: parameters, complete: complete)
+        
+        var parameters = parameters
+        if parameters == nil {
+            print("没有token")
+            parameters = [String: String]()
+        }
+        request(URLString: url, parameters: parameters!, complete: complete)
     }
     
     // 封装 get / post 请求
@@ -39,6 +41,15 @@ class WBNetWorkingController: AFHTTPSessionManager {
         }
         
         let failure = { (dataTask: URLSessionDataTask?, error: Error) in
+            
+            // 针对 403 处理用户 token 过期
+            // 对于测试用户(应用程序还没有提交给新浪微博审核)每天的刷新量是有限的！
+            // 超出上限，token 会被锁定一段时间
+            // 解决办法，新建一个应用程序！
+            if (dataTask?.response as? HTTPURLResponse)?.statusCode == 403 {
+                print("token 已过期！请重新登录")
+                // FIXME: 发送重新登录通知
+            }
             
             complete(nil, false)
         }
