@@ -11,8 +11,10 @@ import UIKit
 class WBHomeViewController: WBBaseViewController {
     
     // 数据列表
-    private lazy var statusList = [String]()
+    private lazy var statusList = [StatusModel]()
     
+    // 视图模型
+    private lazy var statusViewModel = WBStatusListViewModel()
     
     override func setupTabelView() {
         super.setupTabelView()
@@ -22,29 +24,17 @@ class WBHomeViewController: WBBaseViewController {
     // 重写加载数据方法
     override func loadData() {
         
-        // 测试网络连接
-        let parameters = ["access_token": "2.00LGIqRE0_Qink518ec8b393lxPQLC"]
         
-        WBNetWorkingController.shared.requestStatusList(parameters: parameters) { (json, isSuccess) in
-            print(json)
-        }
-        
-        // 设置延迟加载数据
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            for i in 0..<25 {
-                if self.isPullUp {
-                    self.statusList.append("上拉刷新\(i.description)")
-                } else {
-                    self.statusList.insert(i.description, at: 0)
-                }
+        statusViewModel.setupModel { (isComplete) in
+            if isComplete {
+                self.statusList = self.statusViewModel.statusModelArray
+                // 恢复上拉标记
+                self.isPullUp = false
+                // 停止刷新控件
+                self.refreshController?.endRefreshing()
+                // 表格视图重新加载数据
+                self.tableView?.reloadData()
             }
-            
-            // 恢复上拉标记
-            self.isPullUp = false
-            // 停止刷新控件
-            self.refreshController?.endRefreshing()
-            // 表格视图重新加载数据
-            self.tableView?.reloadData()
         }
     }
 
@@ -62,7 +52,7 @@ class WBHomeViewController: WBBaseViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = statusList[indexPath.row].text
         
         return cell
     }

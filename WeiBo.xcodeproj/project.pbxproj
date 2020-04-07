@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */; };
 		7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A42437888E00F22453 /* AppDelegate.swift */; };
 		7B5257A72437888E00F22453 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A62437888E00F22453 /* SceneDelegate.swift */; };
 		7B5257AE2437889100F22453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5257AD2437889100F22453 /* Assets.xcassets */; };
@@ -36,7 +37,6 @@
 		7B5258252438A6B000F22453 /* WBNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5258242438A6B000F22453 /* WBNavBar.swift */; };
 		7B525827243B56BE00F22453 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B525826243B56BE00F22453 /* WBVisitorView.swift */; };
 		7B5DDAF5243B7F830067BA7C /* mian.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DDAF4243B7F830067BA7C /* mian.json */; };
-		7BEC959E243C434D00C7036E /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; };
 		7BEC959F243C434D00C7036E /* Pods_WeiBo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */; };
 		7BEC95AD243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */; };
@@ -61,6 +61,7 @@
 /* Begin PBXFileReference section */
 		013ACD99B81F2B613E42A062 /* Pods-WeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.debug.xcconfig"; path = "Target Support Files/Pods-WeiBo/Pods-WeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		10FE9E1782546A8E7944FC26 /* Pods-WeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiBo.release.xcconfig"; path = "Target Support Files/Pods-WeiBo/Pods-WeiBo.release.xcconfig"; sourceTree = "<group>"; };
+		7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
 		7B5257A12437888E00F22453 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5257A42437888E00F22453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5257A62437888E00F22453 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4A4D181905F434F9A7DDDC /* Pods_WeiBo.framework in Frameworks */,
-				7BEC959E243C434D00C7036E /* Pods_WeiBo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				7B5257BC24378C1800F22453 /* ViewController */,
-				7B5257BB24378C1800F22453 /* View */,
+				7B5257BB24378C1800F22453 /* ViewModel */,
 				7B5257B924378C1800F22453 /* Tools */,
 				7B5257BA24378C1800F22453 /* Model */,
 			);
@@ -187,11 +187,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7B5257BB24378C1800F22453 /* View */ = {
+		7B5257BB24378C1800F22453 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */,
 			);
-			path = View;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7B5257BC24378C1800F22453 /* ViewController */ = {
@@ -437,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */,
+				7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */,
 				7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */,
 				7B5257F72437A47700F22453 /* Bundle+Extension.swift in Sources */,
 				7B52581C2438331C00F22453 /* NSAttributedString+CZAdditon.m in Sources */,

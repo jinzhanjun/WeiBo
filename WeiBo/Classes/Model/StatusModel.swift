@@ -11,16 +11,14 @@ import YYModel
 
 class StatusModel: NSObject {
     // 微博ID
-    var id: Int64 = 0
+    @objc var id: Int64 = 0
     // 微博内容
-    var text: String
+    @objc var text: String?
     
-    init(id: Int64, text: String) {
-        self.id = id
-        self.text = text
-    }
-// 123
-    
+//    init(id: Int64, text: String) {
+//        self.id = id
+//        self.text = text
+//    }
     
     override var description: String {
         return yy_modelDescription()

@@ -21,7 +21,7 @@ class WBBaseViewController: UIViewController {
     lazy var navItem = UINavigationItem()
     
     // 标记是否登录
-    var userLogon = false
+    var userLogon = true
     
     // 是否上拉刷新
     var isPullUp = false

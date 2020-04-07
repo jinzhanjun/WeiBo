@@ -11,7 +11,11 @@ import Foundation
 /// 用来封装提取statuses数据的方法
 extension WBNetWorkingController {
     
-    func requestStatusList(parameters: [String: String], complete: @escaping(Any?, Bool) -> Void) {
+    func requestStatusList(since_id: Int64 = 0, max_id: Int64 = 0, complete: @escaping(Any?, Bool) -> Void) {
+        
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        
+        let parameters = ["since_id": "\(since_id)", "max_id": "\(max_id)"]
         
         let jsonComplete = { (json: Any?, isSuccess: Bool) in
             
@@ -28,6 +32,6 @@ extension WBNetWorkingController {
             }
             
         }
-        requestWeiBo(parameters: parameters, complete: jsonComplete)
+        tokenRequest(requestUrlString: urlString, parameters: parameters, complete: jsonComplete)
     }
 }

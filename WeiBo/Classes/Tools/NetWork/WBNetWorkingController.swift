@@ -19,18 +19,27 @@ class WBNetWorkingController: AFHTTPSessionManager {
     // 创建单例，存储在静态区（常量区），无论哪个控制器访问，都是同一个地址
     static let shared = WBNetWorkingController()
     
+    // token
+    var token: String? = "2.00LGIqRErQbMrB9d57761551liPX4E"
+    
     // 封装一个专门做新浪微博请求的方法
-    func requestWeiBo(parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
+    func tokenRequest(requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
         
-        // 请求地址
-        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
+        guard let token = token
+            else {
+                print("没有token！")
+                complete(nil, false)
+                return
+        }
         
         var parameters = parameters
+        
         if parameters == nil {
-            print("没有token")
             parameters = [String: String]()
         }
-        request(URLString: url, parameters: parameters!, complete: complete)
+        
+        parameters!["access_token"] = token
+        request(URLString: requestUrlString, parameters: parameters!, complete: complete)
     }
     
     // 封装 get / post 请求
