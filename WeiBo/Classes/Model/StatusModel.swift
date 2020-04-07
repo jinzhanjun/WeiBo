@@ -19,7 +19,9 @@ class StatusModel: NSObject {
         self.id = id
         self.text = text
     }
-
+// 123
+    
+    
     override var description: String {
         return yy_modelDescription()
     }
