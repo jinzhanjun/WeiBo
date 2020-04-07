@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Foundation
+
 class WBMainViewController: UITabBarController {
 
     override func viewDidLoad() {

@@ -10,6 +10,11 @@ import UIKit
 
 class WBVisitorView: UIView {
     
+    
+    // 添加注册、登录按钮
+    lazy var registBtn: UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.orange, backgroundImageName: "common_button_white_disable")
+    lazy var loginBtn: UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, backgroundImageName: "common_button_white_disable")
+    
     // 信息字典，用来配置界面
     var infoDic: [String: String]?{
         didSet {
@@ -25,10 +30,7 @@ class WBVisitorView: UIView {
     private lazy var houseImage = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     // 遮罩图像
     private lazy var maskWBImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
-    
-    // 添加注册、登录按钮
-    private lazy var registBtn: UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.orange, backgroundImageName: "common_button_white_disable")
-    private lazy var loginBtn: UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, backgroundImageName: "common_button_white_disable")
+
     
     
     override init(frame: CGRect) {

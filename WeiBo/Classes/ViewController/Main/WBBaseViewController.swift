@@ -49,9 +49,7 @@ class WBBaseViewController: UIViewController {
     }
     
     /// 设置界面
-    func setupUI() {
-        
-        
+    private func setupUI() {
         // 设置导航栏
         setupNavBar()
         
@@ -80,7 +78,7 @@ class WBBaseViewController: UIViewController {
     }
     
     /// 登录界面
-    private func setupVisitorView() {
+    func setupVisitorView() {
         let visitorView = WBVisitorView(frame: view.bounds)
         
         // 根据字典配置内容
@@ -89,19 +87,23 @@ class WBBaseViewController: UIViewController {
         // 设置背景颜色
         visitorView.backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         
+        // 导航条登录注册按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", target: self, action: #selector(regist), event: .touchUpInside)
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", target: self, action: #selector(login), event: .touchUpInside)
         
         // 将访客视图中的每一个子视图都取消 ”translatesAutoresizingMaskIntoConstraints“
         // 系统默认赋予控件autoresizing约束
         visitorView.subviews.forEach{ $0.translatesAutoresizingMaskIntoConstraints = false }
-
         
+        // 登录注册监听方法
+        visitorView.registBtn.addTarget(self, action: #selector(regist), for: .touchUpInside)
+        visitorView.loginBtn.addTarget(self, action: #selector(login), for: .touchUpInside)
         // 插入视图至导航条下面
         view.insertSubview(visitorView, belowSubview: navBar)
-
     }
     
     /// 表格
-    private func setupTabelView() {
+    func setupTabelView() {
         tableView = UITableView(frame: view.bounds)
         // 禁止自动缩进
         tableView?.contentInsetAdjustmentBehavior = .never
@@ -131,6 +133,15 @@ class WBBaseViewController: UIViewController {
         
     }
     
+}
+//MARK: - 注册登录监听方法
+extension WBBaseViewController {
+    @objc private func regist() {
+        print("点击注册")
+    }
+    @objc private func login() {
+        print("点击登录")
+    }
 }
 
 //MARK: - tableDelegate & tableDataSource （添加数据源方法，具体由子类实现）

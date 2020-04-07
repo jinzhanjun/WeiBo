@@ -14,13 +14,20 @@ class WBHomeViewController: WBBaseViewController {
     private lazy var statusList = [String]()
     
     
-    override func setupUI() {
-        super.setupUI()
+    override func setupTabelView() {
+        super.setupTabelView()
         navItem.leftBarButtonItem = UIBarButtonItem(title: "添加好友", target: self, action: #selector(addFridens), event: .touchUpInside)
     }
     
     // 重写加载数据方法
     override func loadData() {
+        
+        // 测试网络连接
+        let parameters = ["access_token": "2.00LGIqRE0_Qink518ec8b393lxPQLC"]
+        
+        WBNetWorkingController.shared.requestStatusList(parameters: parameters) { (json, isSuccess) in
+            print(json)
+        }
         
         // 设置延迟加载数据
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {

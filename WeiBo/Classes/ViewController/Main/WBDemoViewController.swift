@@ -12,7 +12,10 @@ class WBDemoViewController: WBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func setupTabelView() {
+        super.setupTabelView()
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", target: self, action: #selector(showNext), event: .touchUpInside)
     }
     
