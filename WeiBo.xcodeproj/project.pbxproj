@@ -40,6 +40,7 @@
 		7BEC959F243C434D00C7036E /* Pods_WeiBo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */; };
 		7BEC95AD243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */; };
+		7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AE243C79CF00C7036E /* StatusModel.swift */; };
 		AD4A4D181905F434F9A7DDDC /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		7B5DDAF4243B7F830067BA7C /* mian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mian.json; sourceTree = "<group>"; };
 		7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkingController.swift; sourceTree = "<group>"; };
 		7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkingController + Extensions.swift"; sourceTree = "<group>"; };
+		7BEC95AE243C79CF00C7036E /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		85BD268791BC789B13B126EC /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 		7B5257BA24378C1800F22453 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC95AE243C79CF00C7036E /* StatusModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				7B5257C524378D9000F22453 /* WBNavController.swift in Sources */,
 				7B5258172438331C00F22453 /* NSString+CZPath.m in Sources */,
 				7B52581B2438331C00F22453 /* NSString+CZHash.m in Sources */,
+				7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */,
 				7B5258162438331C00F22453 /* NSString+CZBase64.m in Sources */,
 				7B5258122438331C00F22453 /* UIColor+CZAddition.m in Sources */,
 				7B5257CD24378DEF00F22453 /* WBMessageViewController.swift in Sources */,
