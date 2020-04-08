@@ -20,7 +20,8 @@ class WBNetWorkingController: AFHTTPSessionManager {
     static let shared = WBNetWorkingController()
     
     // token
-    var token: String? = "2.00LGIqRErQbMrB9d57761551liPX4E"
+    var token: String? = "62f19c86824f3bdb09049020dc3d3bf4"
+    
     
     // 封装一个专门做新浪微博请求的方法
     func tokenRequest(requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {

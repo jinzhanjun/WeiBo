@@ -15,7 +15,7 @@ extension WBNetWorkingController {
         
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
-        let parameters = ["since_id": "\(since_id)", "max_id": "\(max_id)"]
+        let parameters = ["since_id": "\(since_id)", "max_id": "\((max_id > 0) ? max_id - 1 : 0)"]
         
         let jsonComplete = { (json: Any?, isSuccess: Bool) in
             

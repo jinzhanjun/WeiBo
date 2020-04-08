@@ -25,7 +25,7 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         
-        statusViewModel.setupModel { (isComplete) in
+        statusViewModel.setupModel(pullUp: isPullUp) { (isComplete, shouldRefresh) in
             if isComplete {
                 self.statusList = self.statusViewModel.statusModelArray
                 // 恢复上拉标记
@@ -33,7 +33,9 @@ class WBHomeViewController: WBBaseViewController {
                 // 停止刷新控件
                 self.refreshController?.endRefreshing()
                 // 表格视图重新加载数据
-                self.tableView?.reloadData()
+                if shouldRefresh {
+                    self.tableView?.reloadData()
+                }
             }
         }
     }
