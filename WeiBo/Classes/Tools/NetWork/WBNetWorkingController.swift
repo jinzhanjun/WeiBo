@@ -20,7 +20,9 @@ class WBNetWorkingController: AFHTTPSessionManager {
     static let shared = WBNetWorkingController()
     
     // token
-    var token: String? = "62f19c86824f3bdb09049020dc3d3bf4"
+    var token: String? = "2.00LGIqRE0Va41W49de6b1ed61AdUDB"
+    
+    var uid: String? = "477699987"
     
     
     // 封装一个专门做新浪微博请求的方法

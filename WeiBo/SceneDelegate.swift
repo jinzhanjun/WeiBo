@@ -21,6 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        // 获取用户授权，发送通知、消息、声音等
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .carPlay]) { (isAuthorized, error) in
+            print(isAuthorized)
+        }
+        
         window = UIWindow()
         window?.windowScene = windowScene
         window?.frame = UIScreen.main.bounds

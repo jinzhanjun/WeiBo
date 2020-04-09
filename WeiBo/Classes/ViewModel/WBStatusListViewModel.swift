@@ -25,11 +25,13 @@ class WBStatusListViewModel {
             complete(false, false)
             return
         }
-        
+
         let since_id = pullUp ? 0 : (statusModelArray.first?.id ?? 0)
         let max_id = !pullUp ? 0 : (statusModelArray.last?.id ?? 0 )
         
         WBNetWorkingController.shared.requestStatusList(since_id: since_id, max_id: max_id) { (json, isSuccess) in
+            
+//            print(json)
             // 字典转模型
             guard let array = NSArray.yy_modelArray(with: StatusModel.self, json: json ?? []) as? [StatusModel]
                 else {
@@ -40,7 +42,7 @@ class WBStatusListViewModel {
             print("加载了 \(array.count) 条微博")
             
             // 若没有获取到最新数据
-            if array.count == 0 {
+            if pullUp && array.count == 0 {
                 complete(isSuccess, false)
                 self.loadStatusTime += 1
                 return

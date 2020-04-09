@@ -14,8 +14,9 @@
 - (NSString *)cz_md5String {
     const char *str = self.UTF8String;
     uint8_t buffer[CC_MD5_DIGEST_LENGTH];
-    
-    CC_MD5(str, (CC_LONG)strlen(str), buffer);
+    CC_SHA256(str, (CC_LONG)strlen(str), buffer);
+    // CC_MD5 被弃用了，使用上面CC_SHA256代替
+//    CC_MD5(str, (CC_LONG)strlen(str), buffer);
     
     return [self stringFromBytes:buffer length:CC_MD5_DIGEST_LENGTH];
 }
@@ -116,14 +117,18 @@
         return nil;
     }
     
-    CC_MD5_CTX hashCtx;
-    CC_MD5_Init(&hashCtx);
+    
+    CC_SHA256_CTX hashCtx;
+//    CC_MD5_CTX hashCtx;
+    CC_SHA256_Init(&hashCtx);
+//    CC_MD5_Init(&hashCtx);
     
     while (YES) {
         @autoreleasepool {
             NSData *data = [fp readDataOfLength:FileHashDefaultChunkSizeForReadingData];
             
-            CC_MD5_Update(&hashCtx, data.bytes, (CC_LONG)data.length);
+            CC_SHA256_Update(&hashCtx, data.bytes, (CC_LONG)data.length);
+//            CC_MD5_Update(&hashCtx, data.bytes, (CC_LONG)data.length);
             
             if (data.length == 0) {
                 break;
@@ -132,8 +137,12 @@
     }
     [fp closeFile];
     
-    uint8_t buffer[CC_MD5_DIGEST_LENGTH];
-    CC_MD5_Final(buffer, &hashCtx);
+    
+    uint8_t buffer[CC_SHA256_DIGEST_LENGTH];
+//    uint8_t buffer[CC_MD5_DIGEST_LENGTH];
+    
+    CC_SHA256_Final(buffer, &hashCtx);
+//    CC_MD5_Final(buffer, &hashCtx);
     
     return [self stringFromBytes:buffer length:CC_MD5_DIGEST_LENGTH];
 }

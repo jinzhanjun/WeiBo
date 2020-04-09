@@ -10,11 +10,11 @@ import UIKit
 
 class WBHomeViewController: WBBaseViewController {
     
-    // 数据列表
-    private lazy var statusList = [StatusModel]()
+//    // 数据列表
+//    private lazy var statusList = [StatusModel]()
     
     // 视图模型
-    private lazy var statusViewModel = WBStatusListViewModel()
+    private lazy var statusViewModelArray = WBStatusListViewModel()
     
     override func setupTabelView() {
         super.setupTabelView()
@@ -25,9 +25,9 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         
-        statusViewModel.setupModel(pullUp: isPullUp) { (isComplete, shouldRefresh) in
+        statusViewModelArray.setupModel(pullUp: isPullUp) { (isComplete, shouldRefresh) in
             if isComplete {
-                self.statusList = self.statusViewModel.statusModelArray
+//                self.statusList = self.statusViewModel.statusModelArray
                 // 恢复上拉标记
                 self.isPullUp = false
                 // 停止刷新控件
@@ -48,13 +48,14 @@ class WBHomeViewController: WBBaseViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        statusList.count
+//        statusList.count
+        statusViewModelArray.statusModelArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         
-        cell.textLabel?.text = statusList[indexPath.row].text
+        cell.textLabel?.text = statusViewModelArray.statusModelArray[indexPath.row].text
         
         return cell
     }

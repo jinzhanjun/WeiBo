@@ -8,10 +8,35 @@
 
 import Foundation
 
+
+extension WBNetWorkingController {
+    
+    func requestUnreadCount(completion: @escaping(Int) -> Void) {
+        
+        let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
+        
+        let parameters = ["uid": uid!]
+        
+        tokenRequest(requestUrlString: urlString, parameters: parameters) { (json, isSuccess) in
+            
+            if let jsonDic = json as? [String: Any], let unreadCount = jsonDic["status"] as? Int {
+                completion(unreadCount)
+            }else {
+                return
+            }
+        }
+    }
+}
+
 /// 用来封装提取statuses数据的方法
 extension WBNetWorkingController {
     
-    func requestStatusList(since_id: Int64 = 0, max_id: Int64 = 0, complete: @escaping(Any?, Bool) -> Void) {
+    /// 获取当前登录用户及其所关注用户的最新微博
+    /// - Parameters:
+    ///   - since_id: 比since_id大的微博
+    ///   - max_id: 比max_id小的微博
+    ///   - complete: 完成回调
+    func requestStatusList( since_id:Int64 = 0, max_id: Int64 = 0, complete: @escaping(Any?, Bool) -> Void) {
         
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
@@ -35,3 +60,4 @@ extension WBNetWorkingController {
         tokenRequest(requestUrlString: urlString, parameters: parameters, complete: jsonComplete)
     }
 }
+
