@@ -10,9 +10,6 @@ import UIKit
 
 class WBHomeViewController: WBBaseViewController {
     
-//    // 数据列表
-//    private lazy var statusList = [StatusModel]()
-    
     // 视图模型
     private lazy var statusViewModelArray = WBStatusListViewModel()
     
@@ -23,7 +20,6 @@ class WBHomeViewController: WBBaseViewController {
     
     // 重写加载数据方法
     override func loadData() {
-        
         
         statusViewModelArray.setupModel(pullUp: isPullUp) { (isComplete, shouldRefresh) in
             if isComplete {

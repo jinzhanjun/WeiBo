@@ -15,7 +15,7 @@ extension WBNetWorkingController {
         
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
         
-        let parameters = ["uid": uid!]
+        let parameters = ["uid": Uid]
         
         tokenRequest(requestUrlString: urlString, parameters: parameters) { (json, isSuccess) in
             

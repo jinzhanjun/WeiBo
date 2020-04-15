@@ -21,11 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        // 获取用户授权，发送通知、消息、声音等
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .carPlay]) { (isAuthorized, error) in
-            print(isAuthorized)
-        }
-        
         window = UIWindow()
         window?.windowScene = windowScene
         window?.frame = UIScreen.main.bounds
@@ -38,6 +33,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+extension SceneDelegate {
+    
+    private func setupAppSettings() {
+        // 获取用户授权，发送通知、消息、声音等
+        // available 判断用户系统是否是10.0及以上。
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .carPlay]) { (isAuthorized, error) in
+                print(isAuthorized)
+            }
+        }else {
+            let notification = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            
+            UIApplication.shared.registerUserNotificationSettings(notification)
+        }
+    }
+}
+
+/// 模拟从网络获取App配置信息
 extension SceneDelegate {
     private func getAppInfo() {
         DispatchQueue.global().async {

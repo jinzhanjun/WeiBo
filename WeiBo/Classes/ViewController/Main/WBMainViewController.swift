@@ -16,7 +16,7 @@ class WBMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // 设置时钟
+        //FIXME:  设置时钟
         setupTimer()
     }
     
@@ -80,19 +80,30 @@ extension WBMainViewController: UITabBarControllerDelegate {
     /// 是否激活 即将点击的控制器
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         // 解决撰写微博按钮穿帮的问题
-        if viewController.isMember(of: UIViewController.self) {
-            return false
-        }
         // 如果双击首页tabBar，就重新刷新数据，数据列表返回顶层
-        if viewController == tabBarController.selectedViewController {
-            if let homeVC = viewController.children[0] as? WBHomeViewController {
-                
-                homeVC.tableView?.setContentOffset(CGPoint(x: 0, y: -homeVC.navBar.bounds.height), animated: true)
-                
-                homeVC.loadData()
-            }
+        // 1. 获取当前控制器的index
+        let currentIndex = (children as NSArray).index(of: selectedViewController!)
+        
+        if selectedIndex == 0 && selectedIndex == currentIndex,
+            let homeNav = children[0] as? WBNavController,
+            let homeVC = homeNav.children[0] as? WBHomeViewController
+        {
+            
+            homeVC.tableView?.setContentOffset(CGPoint(x: 0, y: -homeVC.navBar.bounds.height), animated: true)
+            
+            homeVC.loadData()
         }
-        return true
+        
+//
+//        if viewController == tabBarController.selectedViewController {
+//            if let homeVC = viewController.children[0] as? WBHomeViewController {
+//
+//                homeVC.tableView?.setContentOffset(CGPoint(x: 0, y: -homeVC.navBar.bounds.height), animated: true)
+//
+//                homeVC.loadData()
+//            }
+//        }
+        return !viewController.isMember(of: UIViewController.self)
     }
 }
 

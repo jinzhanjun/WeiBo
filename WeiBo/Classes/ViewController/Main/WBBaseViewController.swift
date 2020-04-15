@@ -12,6 +12,9 @@ private let cellID = "cellID"
 
 class WBBaseViewController: UIViewController {
     
+    // 登录界面
+    lazy var loginViewController = WBLoginViewController()
+    
     // 配置访客视图信息字典
     var visitorInfoDic: [String: String]?
     
@@ -21,7 +24,7 @@ class WBBaseViewController: UIViewController {
     lazy var navItem = UINavigationItem()
     
     // 标记是否登录
-    var userLogon = true
+    var userLogon = false
     
     // 是否上拉刷新
     var isPullUp = false
@@ -55,9 +58,7 @@ class WBBaseViewController: UIViewController {
         
         // 根据是否登录，来确定加载哪一个界面
         userLogon ? setupTabelView() : setupVisitorView()
-        
-        // 加载数据
-        loadData()
+
     }
     
     /// 加载数据
@@ -130,6 +131,8 @@ class WBBaseViewController: UIViewController {
         // 添加监听方法
         refreshController?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView?.addSubview(refreshController!)
+        // 加载数据
+        loadData()
         
     }
     
@@ -141,6 +144,10 @@ extension WBBaseViewController {
     }
     @objc private func login() {
         print("点击登录")
+        
+        let nav = UINavigationController(rootViewController: loginViewController)
+        
+        present(nav, animated: true, completion: nil)
     }
 }
 
