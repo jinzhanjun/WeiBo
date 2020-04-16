@@ -93,8 +93,10 @@ extension WBLoginViewController: WKUIDelegate, WKNavigationDelegate {
             return
         }
         
-        // 获取code（token）
+        // 获取code（授权码）
         let code = navigationResponse.response.url?.query?.components(separatedBy: "=").last ?? ""
+        
+        WBNetWorkingController.shared.tokenRequest(code: code)
         
         decisionHandler(.cancel)
         cancel()

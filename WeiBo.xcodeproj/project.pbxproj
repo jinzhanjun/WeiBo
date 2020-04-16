@@ -10,6 +10,7 @@
 		7B00CB4C2445F4CF00FF2888 /* WBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */; };
 		7B00CB4E2446AC9200FF2888 /* WBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00CB4D2446AC9200FF2888 /* WBCommon.swift */; };
 		7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */; };
+		7B3D208D2447FA4F00851C16 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */; };
 		7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A42437888E00F22453 /* AppDelegate.swift */; };
 		7B5257A72437888E00F22453 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A62437888E00F22453 /* SceneDelegate.swift */; };
 		7B5257AE2437889100F22453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5257AD2437889100F22453 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBLoginViewController.swift; sourceTree = "<group>"; };
 		7B00CB4D2446AC9200FF2888 /* WBCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBCommon.swift; sourceTree = "<group>"; };
 		7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
+		7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
 		7B5257A12437888E00F22453 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5257A42437888E00F22453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5257A62437888E00F22453 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B3D208B2447FA2C00851C16 /* UserAccount */ = {
+			isa = PBXGroup;
+			children = (
+				7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */,
+			);
+			path = UserAccount;
+			sourceTree = "<group>";
+		};
 		7B5257982437888E00F22453 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 		7B5257B924378C1800F22453 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				7B3D208B2447FA2C00851C16 /* UserAccount */,
 				7BEC95A9243C5E8900C7036E /* NetWork */,
 				7B5258212438524500F22453 /* Extensions */,
 				7B5257F82438331C00F22453 /* Additions */,
@@ -446,6 +457,7 @@
 				7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */,
 				7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */,
 				7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */,
+				7B3D208D2447FA4F00851C16 /* WBUserAccount.swift in Sources */,
 				7B5257F72437A47700F22453 /* Bundle+Extension.swift in Sources */,
 				7B52581C2438331C00F22453 /* NSAttributedString+CZAdditon.m in Sources */,
 				7B5257CB24378DE500F22453 /* WBDiscoverViewController.swift in Sources */,

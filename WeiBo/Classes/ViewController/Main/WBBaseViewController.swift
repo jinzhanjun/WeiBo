@@ -23,8 +23,8 @@ class WBBaseViewController: UIViewController {
     // 自定义导航条目
     lazy var navItem = UINavigationItem()
     
-    // 标记是否登录
-    var userLogon = false
+//    // 标记是否登录
+//    var userLogon = false
     
     // 是否上拉刷新
     var isPullUp = false
@@ -57,7 +57,7 @@ class WBBaseViewController: UIViewController {
         setupNavBar()
         
         // 根据是否登录，来确定加载哪一个界面
-        userLogon ? setupTabelView() : setupVisitorView()
+        WBNetWorkingController.shared.UserAccount.access_token != nil ? setupTabelView() : setupVisitorView()
 
     }
     

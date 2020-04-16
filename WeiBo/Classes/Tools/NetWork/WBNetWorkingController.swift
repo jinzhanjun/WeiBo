@@ -19,13 +19,16 @@ class WBNetWorkingController: AFHTTPSessionManager {
     // 创建单例，存储在静态区（常量区），无论哪个控制器访问，都是同一个地址
     static let shared = WBNetWorkingController()
     
+    // 微博数据模型
+    lazy var UserAccount = WBUserAccount()
+    
     // token
-    var token: String? = "2.00LGIqRE0Va41W49de6b1ed61AdUDB"
+//    var token: String? //= "2.00LGIqRE0_Qinkd7284ad633fgCpzB"
 
     // 封装一个专门做新浪微博请求的方法
     func tokenRequest(requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
         
-        guard let token = token
+        guard let token = UserAccount.access_token
             else {
                 print("没有token！")
                 complete(nil, false)
@@ -43,7 +46,7 @@ class WBNetWorkingController: AFHTTPSessionManager {
     }
     
     // 封装 get / post 请求
-    private func request(method: RequestMethod = .GET, URLString: String, parameters: [String: String], complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
+    func request(method: RequestMethod = .GET, URLString: String, parameters: [String: String], complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
         
         let success = { (dataTask: URLSessionDataTask, json: Any?) in
             complete(json, true)

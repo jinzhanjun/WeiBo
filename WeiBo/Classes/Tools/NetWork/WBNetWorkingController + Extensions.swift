@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import YYModel
 
 
 extension WBNetWorkingController {
@@ -61,3 +62,27 @@ extension WBNetWorkingController {
     }
 }
 
+/// Oauth 授权请求
+extension WBNetWorkingController {
+    /// 通过Oauth获取token的请求
+    func tokenRequest(code: String) {
+        
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        
+        let parameter = [
+            "client_id": Uid,
+            "client_secret": WBSecret,
+            "grant_type": "authorization_code",
+            "code": code,
+            "redirect_uri": WBRedirect_URI,
+        ]
+        
+        request(method: .POST, URLString: urlString, parameters: parameter) { (json, isSuccess) in
+            
+            // 数据转模型
+            self.UserAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
+            
+            print(self.UserAccount.description)
+        }
+    }
+}
