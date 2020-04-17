@@ -12,9 +12,6 @@ private let cellID = "cellID"
 
 class WBBaseViewController: UIViewController {
     
-    // 登录界面
-    lazy var loginViewController = WBLoginViewController()
-    
     // 配置访客视图信息字典
     var visitorInfoDic: [String: String]?
     
@@ -40,15 +37,45 @@ class WBBaseViewController: UIViewController {
             navItem.title = title
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 设置界面
         setupUI()
+        
+        // 注册用户已经登录的通知
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userLogin),
+            name: .WBUserHasLogin,
+            object: nil)
+        print("视图已经加载")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // 注销
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .WBUserHasLogin, object: nil)
+    }
+    
+    //用户登录后
+    @objc private func userLogin(n: Notification) {
+//
+//        view = nil
+//        //FIXME: 重新加载视图，暂时使用这个
+//        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+//        if (appDelegate?.window?.rootViewController != nil) {
+//
+//            appDelegate?.window?.rootViewController = nil
+//
+//
+//        }
+        
+        
+//        setupUI()
+//        
+//        navItem.rightBarButtonItem = nil
+//        navItem.backBarButtonItem = nil
+//        NotificationCenter.default.removeObserver(self, name: .WBUserHasLogin, object: nil)
     }
     
     /// 设置界面
@@ -57,8 +84,7 @@ class WBBaseViewController: UIViewController {
         setupNavBar()
         
         // 根据是否登录，来确定加载哪一个界面
-        WBNetWorkingController.shared.UserAccount.access_token != nil ? setupTabelView() : setupVisitorView()
-
+        WBNetWorkingController.shared.shouldLogon ? setupTabelView() : setupVisitorView()
     }
     
     /// 加载数据
@@ -142,12 +168,13 @@ extension WBBaseViewController {
     @objc private func regist() {
         print("点击注册")
     }
+    
+    //FIXME: 不应该放在这里，因为base没有实例，登录应属于顶层控制器
     @objc private func login() {
         print("点击登录")
         
-        let nav = UINavigationController(rootViewController: loginViewController)
-        
-        present(nav, animated: true, completion: nil)
+        // 发送需要用户登录的通知
+        NotificationCenter.default.post(name: .WBUserShouldLogon, object: nil)
     }
 }
 

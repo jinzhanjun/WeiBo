@@ -65,7 +65,7 @@ extension WBNetWorkingController {
 /// Oauth 授权请求
 extension WBNetWorkingController {
     /// 通过Oauth获取token的请求
-    func tokenRequest(code: String) {
+    func tokenRequest(code: String, complete: @escaping(_ isSuccess: Bool)-> ()) {
         
         let urlString = "https://api.weibo.com/oauth2/access_token"
         
@@ -77,12 +77,15 @@ extension WBNetWorkingController {
             "redirect_uri": WBRedirect_URI,
         ]
         
-        request(method: .POST, URLString: urlString, parameters: parameter) { (json, isSuccess) in
+        request(method: .POST, URLString: urlString, parameters: parameter) { [weak self] (json, isSuccess) in
             
             // 数据转模型
-            self.UserAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
+            self?.userAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
             
-            print(self.UserAccount.description)
+            // 加载完成，回调给控制器（WBLoginViewController）
+            complete(isSuccess)
+            self?.userAccount.save()
+            print(self?.userAccount.description)
         }
     }
 }

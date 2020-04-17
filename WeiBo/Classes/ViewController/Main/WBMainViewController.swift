@@ -10,25 +10,33 @@ import UIKit
 
 class WBMainViewController: UITabBarController {
     
+    // 登录界面
+    lazy var loginViewController = WBLoginViewController()
+    
     // 时钟
     var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //FIXME:  设置时钟
-        setupTimer()
+        //FIXME:  设置时钟 (只有当登录以后才设置时钟)
+        WBNetWorkingController.shared.userAccount.access_token != nil ? setupTimer() : ()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 添加撰写按钮
         addComposeBtn()
+        
+        print("MainViewController 即将显示")
     }
     
     deinit {
         // 销毁时钟
         timer?.invalidate()
+        
+        // 注销用户登录通知
+        NotificationCenter.default.removeObserver(self, name: .WBUserShouldLogon, object: nil)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -41,6 +49,17 @@ class WBMainViewController: UITabBarController {
         // 添加子控制器
         addChildControllers()
         delegate = self
+        
+        // 注册用户登录通知
+        NotificationCenter.default.addObserver(self, selector: #selector(showLoginView), name: .WBUserShouldLogon, object: nil)
+    }
+    
+    /// 展示登录界面的方法，一般需要用nav包一下
+    @objc private func showLoginView() {
+        
+        let nav = UINavigationController(rootViewController: loginViewController)
+        
+        present(nav, animated: true, completion: nil)
     }
     
     
@@ -82,7 +101,7 @@ extension WBMainViewController: UITabBarControllerDelegate {
         // 解决撰写微博按钮穿帮的问题
         // 如果双击首页tabBar，就重新刷新数据，数据列表返回顶层
         // 1. 获取当前控制器的index
-        let currentIndex = (children as NSArray).index(of: selectedViewController!)
+        let currentIndex = (children as NSArray).index(of: viewController)
         
         if selectedIndex == 0 && selectedIndex == currentIndex,
             let homeNav = children[0] as? WBNavController,

@@ -20,17 +20,23 @@ class WBNetWorkingController: AFHTTPSessionManager {
     static let shared = WBNetWorkingController()
     
     // 微博数据模型
-    lazy var UserAccount = WBUserAccount()
+    lazy var userAccount = WBUserAccount()
     
-    // token
-//    var token: String? //= "2.00LGIqRE0_Qinkd7284ad633fgCpzB"
+    // 用户登录标识
+    var shouldLogon: Bool {
+        return userAccount.access_token != nil
+    }
 
     // 封装一个专门做新浪微博请求的方法
     func tokenRequest(requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
         
-        guard let token = UserAccount.access_token
+        guard let token = userAccount.access_token
             else {
-                print("没有token！")
+                
+                // 没有token了，需要发送通知给MainViewController， 并且展示登录界面
+                print("没有token，请重新登录")
+                NotificationCenter.default.post(name: .WBUserShouldLogon, object: nil)
+                
                 complete(nil, false)
                 return
         }
@@ -43,6 +49,12 @@ class WBNetWorkingController: AFHTTPSessionManager {
         
         parameters!["access_token"] = token
         request(URLString: requestUrlString, parameters: parameters!, complete: complete)
+    }
+    
+    // 销毁
+    deinit {
+        // 移除通知
+        NotificationCenter.default.removeObserver(self, name: .WBUserShouldLogon, object: nil)
     }
     
     // 封装 get / post 请求

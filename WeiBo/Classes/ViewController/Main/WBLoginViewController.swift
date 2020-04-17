@@ -8,17 +8,16 @@
 
 import UIKit
 import WebKit
+import SVProgressHUD
 
 class WBLoginViewController: UIViewController {
-    
+    // 懒加载登录页面
     lazy var wkWebView = WKWebView(frame: view.bounds)
-    
     
     override func loadView() {
         super.loadView()
         
         view = wkWebView
-        
     }
     
     override func viewDidLoad() {
@@ -34,11 +33,12 @@ class WBLoginViewController: UIViewController {
     
     /// 设置界面
     private func setupUI() {
-        
-        let configuration = WKWebViewConfiguration()
-        configuration.userContentController = WKUserContentController()
-        
+        // 设置标题
         title = "微博登录"
+        
+        // 设置不可滚动
+        wkWebView.scrollView.isScrollEnabled = false
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", target: self, action: #selector(cancel), event: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", target: self, action: #selector(autoFill), event: .touchUpInside)
@@ -48,12 +48,12 @@ class WBLoginViewController: UIViewController {
     
     /// 取消页面
     @objc private func cancel() {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+//        SVProgressHUD.dismiss()
+        presentingViewController?.dismiss(animated: false, completion: nil)
     }
     
     /// 自动填充
     @objc private func autoFill() {
-        
         // 准备 js
         let js = "document.getElementsByName('userId')[0].value = '15210779201';" + "document.getElementsByName('passwd')[0].value = 'Jin8851068';"
         wkWebView.evaluateJavaScript(js, completionHandler: nil)
@@ -73,6 +73,20 @@ class WBLoginViewController: UIViewController {
 
 /// 网络请求拓展
 extension WBLoginViewController: WKUIDelegate, WKNavigationDelegate {
+    
+    /// 开始加载数据
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//        SVProgressHUD.show()
+    }
+    
+    /// 加载数据结束
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        SVProgressHUD.dismiss()
+    }
+    
+    
+    
+    
 
     /// 请求前，是否要加载页面
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -96,10 +110,19 @@ extension WBLoginViewController: WKUIDelegate, WKNavigationDelegate {
         // 获取code（授权码）
         let code = navigationResponse.response.url?.query?.components(separatedBy: "=").last ?? ""
         
-        WBNetWorkingController.shared.tokenRequest(code: code)
+        WBNetWorkingController.shared.tokenRequest(code: code) { [weak self] (isSuccess) in
+            if isSuccess {
+                print("加载成功！")
+                // 发送用户已经登录通知
+                NotificationCenter.default.post(name: .WBUserHasLogin, object: nil)
+                self?.cancel()
+//                SVProgressHUD.showSuccess(withStatus: "登录成功")
+            } else {
+//                SVProgressHUD.show(withStatus: "无法加载，请检查网络...")
+            }
+        }
         
         decisionHandler(.cancel)
-        cancel()
     }
     
     /// 点击页面中的超链接后，决定是否要加载新页面

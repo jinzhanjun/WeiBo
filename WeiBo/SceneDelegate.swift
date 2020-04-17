@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -27,14 +26,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .white
         
         window?.rootViewController = WBMainViewController()
+        
+        // 注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(resetRootViewController), name: .WBUserHasLogin, object: nil)
+        
+        
         // 从网络获取APP数据
         getAppInfo()
+        // 设置APP的用户授权
+        setupAppSettings()
         window?.makeKeyAndVisible()
     }
 }
 
+/// 用户授权
 extension SceneDelegate {
-    
     private func setupAppSettings() {
         // 获取用户授权，发送通知、消息、声音等
         // available 判断用户系统是否是10.0及以上。
@@ -71,3 +77,15 @@ extension SceneDelegate {
     }
 }
 
+
+extension SceneDelegate {
+    
+    @objc func resetRootViewController() {
+        if window?.rootViewController != nil {
+            
+            window?.rootViewController = nil
+        }
+        
+        window?.rootViewController = WBMainViewController()
+    }
+}
