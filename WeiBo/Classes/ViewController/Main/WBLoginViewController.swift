@@ -49,7 +49,7 @@ class WBLoginViewController: UIViewController {
     /// 取消页面
     @objc private func cancel() {
 //        SVProgressHUD.dismiss()
-        presentingViewController?.dismiss(animated: false, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     /// 自动填充
@@ -83,10 +83,6 @@ extension WBLoginViewController: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 //        SVProgressHUD.dismiss()
     }
-    
-    
-    
-    
 
     /// 请求前，是否要加载页面
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

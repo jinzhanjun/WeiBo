@@ -82,10 +82,33 @@ extension WBNetWorkingController {
             // 数据转模型
             self?.userAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
             
-            // 加载完成，回调给控制器（WBLoginViewController）
-            complete(isSuccess)
-            self?.userAccount.save()
-            print(self?.userAccount.description)
+            
+            // 用户信息请求加载
+            self?.userInfoRequest(completion: { (userInfoDic) in
+                self?.userAccount.yy_modelSet(with: userInfoDic)
+                
+                
+                print(self?.userAccount)
+                // 加载完成，回调给控制器（WBLoginViewController）
+                complete(isSuccess)
+                self?.userAccount.save()
+            })
+        }
+    }
+}
+
+/// 用户信息请求
+extension WBNetWorkingController {
+    
+    // 封装用户信息请求
+    private func userInfoRequest(completion: @escaping([String: Any])->()) {
+        
+        let paramaters = ["uid": String(userAccount.uid)]
+        
+        tokenRequest(requestUrlString: UserInfoUrl, parameters: paramaters) { (json, isSuccess) in
+            
+            guard let userInfoDic = json as? [String: Any] else { return }
+            completion(userInfoDic)
         }
     }
 }

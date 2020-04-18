@@ -77,15 +77,17 @@ extension SceneDelegate {
     }
 }
 
-
+/// 登录后跳转界面
 extension SceneDelegate {
     
     @objc func resetRootViewController() {
-        if window?.rootViewController != nil {
-            
-            window?.rootViewController = nil
-        }
         
-        window?.rootViewController = WBMainViewController()
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            if sceneDelegate.window?.rootViewController != nil {
+                sceneDelegate.window?.rootViewController = nil
+            }
+            
+            sceneDelegate.window?.rootViewController = WBMainViewController()
+        }
     }
 }

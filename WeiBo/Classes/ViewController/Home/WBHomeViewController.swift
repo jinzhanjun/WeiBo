@@ -16,6 +16,10 @@ class WBHomeViewController: WBBaseViewController {
     override func setupTabelView() {
         super.setupTabelView()
         navItem.leftBarButtonItem = UIBarButtonItem(title: "添加好友", target: self, action: #selector(addFridens), event: .touchUpInside)
+        
+        let button = WBNavButton(title: WBNetWorkingController.shared.userAccount.name)
+        
+        navItem.titleView = button
     }
     
     // 重写加载数据方法

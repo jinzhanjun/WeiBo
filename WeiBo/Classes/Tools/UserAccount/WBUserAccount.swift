@@ -28,6 +28,13 @@ class WBUserAccount: NSObject {
     // 过期日期
     @objc var expiresDate: Date?
     
+    
+    // - 用户信息
+    // 头像
+    @objc var avatar_large: String?
+    
+    @objc var name: String?
+    
     override var description: String {
         return yy_modelDescription()
     }
@@ -45,7 +52,7 @@ class WBUserAccount: NSObject {
             else { return }
         
         // 字典转模型
-//        self.yy_modelSet(withJSON: json)
+        self.yy_modelSet(withJSON: json)
     }
     
     /// 保存模型至沙盒

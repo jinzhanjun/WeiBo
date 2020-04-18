@@ -60,18 +60,8 @@ class WBBaseViewController: UIViewController {
     //用户登录后
     @objc private func userLogin(n: Notification) {
 //
+        // 新版本无法使用了
 //        view = nil
-//        //FIXME: 重新加载视图，暂时使用这个
-//        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-//        if (appDelegate?.window?.rootViewController != nil) {
-//
-//            appDelegate?.window?.rootViewController = nil
-//
-//
-//        }
-        
-        
-//        setupUI()
 //        
 //        navItem.rightBarButtonItem = nil
 //        navItem.backBarButtonItem = nil

@@ -12,16 +12,19 @@ import Foundation
 var UserAccountFile = "WBUserAccount.json"
 
 // 应用识别代码
-let Uid: String = "1702281849"
+let Uid: String = "1069089672"
 
 // 应用APPSecret
-let WBSecret = "6bea576eb06abcbd81e63376e0e1e60d"
+let WBSecret = "b5a3cfdc766f09aeace8031b81295619"
 
 // 回调地址
 let WBRedirect_URI: String = "http://baidu.com"
 
 // 授权页面
 let OauthUrl: String = "https://api.weibo.com/oauth2/authorize"
+
+// 用户信息接口
+let UserInfoUrl: String = "https://api.weibo.com/2/users/show.json"
 
 /// 增加通知的名字的属性
 extension NSNotification.Name {

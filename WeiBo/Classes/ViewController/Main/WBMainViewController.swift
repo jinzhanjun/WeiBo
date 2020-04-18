@@ -50,6 +50,9 @@ class WBMainViewController: UITabBarController {
         addChildControllers()
         delegate = self
         
+        // 设置新特性页面
+        setNewVersionView()
+        
         // 注册用户登录通知
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginView), name: .WBUserShouldLogon, object: nil)
     }
@@ -75,7 +78,7 @@ class WBMainViewController: UITabBarController {
     /// 设置时钟
     private func setupTimer() {
         // 设置时钟， timer对target强引用
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(setUnreadCount), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 360, target: self, selector: #selector(setUnreadCount), userInfo: nil, repeats: true)
     }
     
     /// 设置首页的badgeNumber显示未读微博数量
@@ -90,6 +93,39 @@ class WBMainViewController: UITabBarController {
             
             // 设置App图标的badgeNumber
             UIApplication.shared.applicationIconBadgeNumber = unReadCount
+        }
+    }
+}
+
+/// 设置是否显示新特性页面
+extension WBMainViewController {
+    /// 检查新特性
+    private func setNewVersionView() {
+        
+        // 检查是否为新版本
+        let v = WBNewVersionView.wbNewVersionView()
+        
+        view.addSubview(v)
+    }
+    
+    // 是否为新版本
+    private var isNewVersion: Bool {
+        let defaults = UserDefaults.standard
+        // 获取当前版本信息
+        guard let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return false }
+        
+        // 获取旧版本信息
+        let oldVersion = defaults.value(forKey: "VersionString") as? String
+        
+        
+        if currentVersion != oldVersion {
+            print("新版本!!")
+            // 设置APP新版本
+            defaults.setValue(currentVersion, forKey: "VersionString")
+            
+            return true
+        } else {
+            return false
         }
     }
 }
