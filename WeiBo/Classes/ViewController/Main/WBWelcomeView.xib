@@ -22,6 +22,11 @@
                         <constraint firstAttribute="width" constant="100" id="HKX-5S-job"/>
                         <constraint firstAttribute="height" constant="100" id="i5i-da-fPk"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jS6-Xg-qnw">
                     <rect key="frame" x="168" y="560" width="78" height="23"/>
@@ -47,7 +52,7 @@
                 <outlet property="avatarTop" destination="c58-eQ-aAy" id="MyD-gr-oIs"/>
                 <outlet property="welcomeLabel" destination="jS6-Xg-qnw" id="NJv-XN-iqc"/>
             </connections>
-            <point key="canvasLocation" x="-235" y="-4"/>
+            <point key="canvasLocation" x="13" y="-15"/>
         </view>
     </objects>
     <resources>

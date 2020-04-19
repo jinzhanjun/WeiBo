@@ -102,8 +102,12 @@ extension WBMainViewController {
     /// 检查新特性
     private func setNewVersionView() {
         
+        if !WBNetWorkingController.shared.shouldLogon {
+            return
+        }
+        
         // 检查是否为新版本
-        let v = WBWelcomeView.wbWelcomeView()
+        let v = isNewVersion ? WBNewVersionView.view() : WBWelcomeView.view()
         
         view.addSubview(v)
     }

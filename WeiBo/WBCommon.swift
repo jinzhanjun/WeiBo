@@ -12,10 +12,10 @@ import Foundation
 var UserAccountFile = "WBUserAccount.json"
 
 // 应用识别代码
-let Uid: String = "1069089672"
+let Uid: String = "300141206"
 
 // 应用APPSecret
-let WBSecret = "b5a3cfdc766f09aeace8031b81295619"
+let WBSecret = "819cf4af648bc6d09a610a43b7ecd2c1"
 
 // 回调地址
 let WBRedirect_URI: String = "http://baidu.com"

@@ -88,7 +88,7 @@ extension WBNetWorkingController {
                 self?.userAccount.yy_modelSet(with: userInfoDic)
                 
                 
-                print(self?.userAccount)
+//                print(self?.userAccount)
                 // 加载完成，回调给控制器（WBLoginViewController）
                 complete(isSuccess)
                 self?.userAccount.save()

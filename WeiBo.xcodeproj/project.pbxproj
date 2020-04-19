@@ -43,6 +43,8 @@
 		7B5D18B3244B4DBC00EE7CF8 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */; };
 		7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */; };
 		7B5DDAF5243B7F830067BA7C /* mian.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DDAF4243B7F830067BA7C /* mian.json */; };
+		7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44C42244BF455007F035B /* WBNewVersionView.swift */; };
+		7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE44C44244BF474007F035B /* WBNewVersionView.xib */; };
 		7BEC959F243C434D00C7036E /* Pods_WeiBo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */; };
 		7BEC95AD243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */; };
@@ -119,6 +121,8 @@
 		7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		7B5DDAF4243B7F830067BA7C /* mian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mian.json; sourceTree = "<group>"; };
+		7BE44C42244BF455007F035B /* WBNewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewVersionView.swift; sourceTree = "<group>"; };
+		7BE44C44244BF474007F035B /* WBNewVersionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewVersionView.xib; sourceTree = "<group>"; };
 		7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkingController.swift; sourceTree = "<group>"; };
 		7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkingController + Extensions.swift"; sourceTree = "<group>"; };
 		7BEC95AE243C79CF00C7036E /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */,
 				7B5D18B0244B368200EE7CF8 /* WBNavButton.swift */,
 				7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */,
+				7BE44C42244BF455007F035B /* WBNewVersionView.swift */,
+				7BE44C44244BF474007F035B /* WBNewVersionView.xib */,
 				7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */,
 			);
 			path = Main;
@@ -409,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
+				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
 				7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */,
 				7B5257AE2437889100F22453 /* Assets.xcassets in Resources */,
 				7B5DDAF5243B7F830067BA7C /* mian.json in Resources */,
@@ -465,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5D18B1244B368200EE7CF8 /* WBNavButton.swift in Sources */,
+				7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */,
 				7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */,
 				7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */,
 				7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */,
@@ -633,7 +641,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = PanyKing.WeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeiBo/Objc-Bridge.h";
@@ -656,7 +664,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = PanyKing.WeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeiBo/Objc-Bridge.h";

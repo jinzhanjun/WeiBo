@@ -2,67 +2,96 @@
 //  WBNewVersionView.swift
 //  WeiBo
 //
-//  Created by jinzhanjun on 2020/4/18.
+//  Created by jinzhanjun on 2020/4/19.
 //  Copyright © 2020 jinzhanjun. All rights reserved.
 //
 
 import UIKit
-import SDWebImage
 
-class WBWelcomeView: UIView {
-    // 头像
-    @IBOutlet weak var avatarImage: UIImageView!
-    // 欢迎Label
-    @IBOutlet weak var welcomeLabel: UILabel!
+class WBNewVersionView: UIView, UIScrollViewDelegate {
     
-    // 头像top约束
-    @IBOutlet weak var avatarTop: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageIndicator: UIPageControl!
     
+    @IBOutlet weak var enterButton: UIButton!
     
-    class func wbNewVersionView() -> WBWelcomeView {
+    @IBAction func enterButtonPressed(_ sender: UIButton) {
         
+    }
+    
+    // 图片数量
+    let NewPicCount = 4
+    
+    class func view()-> WBNewVersionView {
         // 从XIB中加载
-        let instence = Bundle.main.loadNibNamed("NewVersionView", owner: self, options: nil)?.first as? WBWelcomeView
-        
-        let urlStr = WBNetWorkingController.shared.userAccount.avatar_large
-        let url = URL(string: urlStr ?? "")
-        
-        instence?.avatarImage.setImageWith(url!, placeholderImage: UIImage(named: "avatar_default_big"))
+        let instence = Bundle.main.loadNibNamed("WBNewVersionView", owner: self, options: nil)?.first as? WBNewVersionView
+
         return instence!
     }
     
-    
-    /// 此方法是从二进制数据读取到内存后调用的方法，此时IBOutlet还没有连接，无法读取avataImage、welcomeLabel、avatarTop三个控件
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//
-//        print(welcomeLabel)
-//    }
-    
-//
-//    override func willMove(toWindow newWindow: UIWindow?) {
-//        super.willMove(toWindow: newWindow)
-//
-//        print(welcomeLabel)
-//    }
-    
-    
-    /// 已经移动到窗口上
-    override func didMoveToWindow() {
+    // 激活控件
+    override func awakeFromNib() {
+        setupUI()
         
-        avatarTop.constant = bounds.height - 700
+        enterButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
+    }
+
+    // 设置界面
+    private func setupUI() {
         
-        UIView.animate(withDuration: 1.5, animations: {
-            self.layoutSubviews()
-        }) { (_) in
+        let rect = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - safeAreaInsets.bottom - safeAreaInsets.top))
+        
+        scrollView.contentSize = CGSize(width: rect.width * CGFloat(NewPicCount + 1), height: scrollView.bounds.height)
+        
+        for i in 1..<NewPicCount + 1 {
             
-            UIView.animate(withDuration: 1.5, animations: {
-                self.welcomeLabel.alpha = 1
-            }) { (isComplete) in
-                if isComplete {
-                    self.removeFromSuperview()
-                }
-            }
+            let imageView = UIImageView(frame: UIScreen.main.bounds)
+            imageView.image = UIImage(named: "new_feature_\(i)")
+            imageView.contentMode = .scaleToFill
+            
+            imageView.frame = imageView.frame.offsetBy(dx: imageView.bounds.width * CGFloat(i-1), dy: 0)
+            scrollView.addSubview(imageView)
+        }
+        // 设置代理
+        scrollView.delegate = self
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.bounces = false
+        scrollView.isDirectionalLockEnabled = true
+        scrollView.isPagingEnabled = true
+    }
+    
+    @objc private func closeView() {
+        removeFromSuperview()
+    }
+    
+    //MARK: - scrollViewDelegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        enterButton.isHidden = true
+        pageIndicator.isHidden = false
+        
+        let pageNumber = Int((scrollView.contentOffset.x / UIScreen.main.bounds.width) + 0.5)
+        
+        pageIndicator.currentPage = Int(pageNumber)
+        
+        if pageNumber == NewPicCount - 1 {
+            enterButton.isHidden = false
+        }
+        if pageNumber == NewPicCount {
+            enterButton.isHidden = true
+            pageIndicator.isHidden = true
         }
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let pageNumber = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
+        
+        if pageNumber == NewPicCount {
+            closeView()
+        }
+    }
+    
+    
 }

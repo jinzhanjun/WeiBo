@@ -19,15 +19,10 @@ class WBWelcomeView: UIView {
     @IBOutlet weak var avatarTop: NSLayoutConstraint!
     
     
-    class func wbWelcomeView() -> WBWelcomeView {
+    class func view() -> WBWelcomeView {
         
         // 从XIB中加载
         let instence = Bundle.main.loadNibNamed("WBWelcomeView", owner: self, options: nil)?.first as? WBWelcomeView
-        
-        let urlStr = WBNetWorkingController.shared.userAccount.avatar_large
-        let url = URL(string: urlStr ?? "")
-        
-        instence?.avatarImage.setImageWith(url!, placeholderImage: UIImage(named: "avatar_default_big"))
         return instence!
     }
     
@@ -45,6 +40,17 @@ class WBWelcomeView: UIView {
 //
 //        print(welcomeLabel)
 //    }
+    
+    override func awakeFromNib() {
+                
+        guard let urlStr = WBNetWorkingController.shared.userAccount.avatar_large,
+            let url = URL(string: urlStr) else {
+                return
+        }
+        avatarImage.setImageWith(url, placeholderImage: UIImage(named: "avatar_default_big"))
+        // 设置圆角
+//        avatarImage.layer.cornerRadius = 10
+    }
     
     
     /// 已经移动到窗口上
