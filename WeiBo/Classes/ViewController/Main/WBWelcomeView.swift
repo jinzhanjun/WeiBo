@@ -19,10 +19,10 @@ class WBWelcomeView: UIView {
     @IBOutlet weak var avatarTop: NSLayoutConstraint!
     
     
-    class func wbNewVersionView() -> WBWelcomeView {
+    class func wbWelcomeView() -> WBWelcomeView {
         
         // 从XIB中加载
-        let instence = Bundle.main.loadNibNamed("NewVersionView", owner: self, options: nil)?.first as? WBWelcomeView
+        let instence = Bundle.main.loadNibNamed("WBWelcomeView", owner: self, options: nil)?.first as? WBWelcomeView
         
         let urlStr = WBNetWorkingController.shared.userAccount.avatar_large
         let url = URL(string: urlStr ?? "")

@@ -40,8 +40,8 @@
 		7B5258252438A6B000F22453 /* WBNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5258242438A6B000F22453 /* WBNavBar.swift */; };
 		7B525827243B56BE00F22453 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B525826243B56BE00F22453 /* WBVisitorView.swift */; };
 		7B5D18B1244B368200EE7CF8 /* WBNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D18B0244B368200EE7CF8 /* WBNavButton.swift */; };
-		7B5D18B3244B4DBC00EE7CF8 /* WBNewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D18B2244B4DBC00EE7CF8 /* WBNewVersionView.swift */; };
-		7B5D18B5244B4E0C00EE7CF8 /* NewVersionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5D18B4244B4E0C00EE7CF8 /* NewVersionView.xib */; };
+		7B5D18B3244B4DBC00EE7CF8 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */; };
+		7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */; };
 		7B5DDAF5243B7F830067BA7C /* mian.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DDAF4243B7F830067BA7C /* mian.json */; };
 		7BEC959F243C434D00C7036E /* Pods_WeiBo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */; };
@@ -116,8 +116,8 @@
 		7B5258242438A6B000F22453 /* WBNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavBar.swift; sourceTree = "<group>"; };
 		7B525826243B56BE00F22453 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		7B5D18B0244B368200EE7CF8 /* WBNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavButton.swift; sourceTree = "<group>"; };
-		7B5D18B2244B4DBC00EE7CF8 /* WBNewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewVersionView.swift; sourceTree = "<group>"; };
-		7B5D18B4244B4E0C00EE7CF8 /* NewVersionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewVersionView.xib; sourceTree = "<group>"; };
+		7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
+		7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		7B5DDAF4243B7F830067BA7C /* mian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mian.json; sourceTree = "<group>"; };
 		7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkingController.swift; sourceTree = "<group>"; };
 		7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkingController + Extensions.swift"; sourceTree = "<group>"; };
@@ -273,8 +273,8 @@
 				7B525826243B56BE00F22453 /* WBVisitorView.swift */,
 				7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */,
 				7B5D18B0244B368200EE7CF8 /* WBNavButton.swift */,
-				7B5D18B2244B4DBC00EE7CF8 /* WBNewVersionView.swift */,
-				7B5D18B4244B4E0C00EE7CF8 /* NewVersionView.xib */,
+				7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */,
+				7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -409,7 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
-				7B5D18B5244B4E0C00EE7CF8 /* NewVersionView.xib in Resources */,
+				7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */,
 				7B5257AE2437889100F22453 /* Assets.xcassets in Resources */,
 				7B5DDAF5243B7F830067BA7C /* mian.json in Resources */,
 			);
@@ -495,7 +495,7 @@
 				7B52581D2438331C00F22453 /* NSArray+Log.m in Sources */,
 				7B5258182438331C00F22453 /* UIButton+CZAddition.m in Sources */,
 				7B525827243B56BE00F22453 /* WBVisitorView.swift in Sources */,
-				7B5D18B3244B4DBC00EE7CF8 /* WBNewVersionView.swift in Sources */,
+				7B5D18B3244B4DBC00EE7CF8 /* WBWelcomeView.swift in Sources */,
 				7B5257C324378D6600F22453 /* WBMainViewController.swift in Sources */,
 				7B5258142438331C00F22453 /* UIScreen+CZAddition.m in Sources */,
 				7B5257C724378DA600F22453 /* WBBaseViewController.swift in Sources */,

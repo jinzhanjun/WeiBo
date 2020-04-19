@@ -103,7 +103,7 @@ extension WBMainViewController {
     private func setNewVersionView() {
         
         // 检查是否为新版本
-        let v = WBNewVersionView.wbNewVersionView()
+        let v = WBWelcomeView.wbWelcomeView()
         
         view.addSubview(v)
     }

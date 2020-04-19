@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="A1z-cq-p1G" customClass="WBNewVersionView" customModule="WeiBo" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="A1z-cq-p1G" customClass="WBWelcomeView" customModule="WeiBo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -47,7 +47,7 @@
                 <outlet property="avatarTop" destination="c58-eQ-aAy" id="MyD-gr-oIs"/>
                 <outlet property="welcomeLabel" destination="jS6-Xg-qnw" id="NJv-XN-iqc"/>
             </connections>
-            <point key="canvasLocation" x="86" y="23"/>
+            <point key="canvasLocation" x="-235" y="-4"/>
         </view>
     </objects>
     <resources>
