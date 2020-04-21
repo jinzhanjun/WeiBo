@@ -48,6 +48,7 @@ class WBWelcomeView: UIView {
                 return
         }
         avatarImage.setImageWith(url, placeholderImage: UIImage(named: "avatar_default_big"))
+        
         // 设置圆角
 //        avatarImage.layer.cornerRadius = 10
     }

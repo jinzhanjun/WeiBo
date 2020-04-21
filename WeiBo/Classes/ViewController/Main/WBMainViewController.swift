@@ -151,6 +151,10 @@ extension WBMainViewController: UITabBarControllerDelegate {
             homeVC.tableView?.setContentOffset(CGPoint(x: 0, y: -homeVC.navBar.bounds.height), animated: true)
             
             homeVC.loadData()
+            
+            // edgeNumber消除
+            homeVC.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         
 //

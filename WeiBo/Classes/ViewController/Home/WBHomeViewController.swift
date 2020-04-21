@@ -20,6 +20,14 @@ class WBHomeViewController: WBBaseViewController {
         let button = WBNavButton(title: WBNetWorkingController.shared.userAccount.name)
         
         navItem.titleView = button
+        
+        // 注册原型Cell
+        tableView?.register(UINib(nibName: "WBStatusCell", bundle: nil), forCellReuseIdentifier: "WBStatusCell")
+        
+        tableView?.cellLayoutMarginsFollowReadableWidth = true
+        
+        // 设置预估行高
+        tableView?.estimatedRowHeight = 300
     }
     
     // 重写加载数据方法
@@ -47,15 +55,19 @@ class WBHomeViewController: WBBaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    //MARK: - tableViewDelegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        statusList.count
         statusViewModelArray.statusModelArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WBStatusCell", for: indexPath) as! WBStatusView
         
-        cell.textLabel?.text = statusViewModelArray.statusModelArray[indexPath.row].text
+        let viewModel = statusViewModelArray.statusModelArray[indexPath.row]
+        
+        cell.viewModel = viewModel
         
         return cell
     }

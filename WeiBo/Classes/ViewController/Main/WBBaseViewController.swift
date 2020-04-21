@@ -137,6 +137,9 @@ class WBBaseViewController: UIViewController {
         // 设置数据源
         tableView?.dataSource = self
         
+        // 设置滚动条下移，防止navBar的遮挡
+        tableView?.scrollIndicatorInsets = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        
         view.insertSubview(tableView!, belowSubview: navBar)
         
         // 注册cell
@@ -151,7 +154,6 @@ class WBBaseViewController: UIViewController {
         loadData()
         
     }
-    
 }
 //MARK: - 注册登录监听方法
 extension WBBaseViewController {

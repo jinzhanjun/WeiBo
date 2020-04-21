@@ -10,6 +10,12 @@
 		7B00CB4C2445F4CF00FF2888 /* WBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */; };
 		7B00CB4E2446AC9200FF2888 /* WBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00CB4D2446AC9200FF2888 /* WBCommon.swift */; };
 		7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */; };
+		7B2B0C53244EE50A006438FC /* WBStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B0C52244EE50A006438FC /* WBStatusCell.xib */; };
+		7B2B0C55244EE626006438FC /* WBStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C54244EE626006438FC /* WBStatusView.swift */; };
+		7B2B0C57244EEF2F006438FC /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C56244EEF2F006438FC /* WBStatusViewModel.swift */; };
+		7B2B0C59244EFB1F006438FC /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C58244EFB1F006438FC /* WBUser.swift */; };
+		7B2B0C60244F0D86006438FC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C5F244F0D86006438FC /* UIImage+Extension.swift */; };
+		7B2B0C64244F3515006438FC /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C63244F3515006438FC /* WBStatusToolBar.swift */; };
 		7B3D208D2447FA4F00851C16 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */; };
 		7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A42437888E00F22453 /* AppDelegate.swift */; };
 		7B5257A72437888E00F22453 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A62437888E00F22453 /* SceneDelegate.swift */; };
@@ -72,6 +78,12 @@
 		7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBLoginViewController.swift; sourceTree = "<group>"; };
 		7B00CB4D2446AC9200FF2888 /* WBCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBCommon.swift; sourceTree = "<group>"; };
 		7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
+		7B2B0C52244EE50A006438FC /* WBStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBStatusCell.xib; sourceTree = "<group>"; };
+		7B2B0C54244EE626006438FC /* WBStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusView.swift; sourceTree = "<group>"; };
+		7B2B0C56244EEF2F006438FC /* WBStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
+		7B2B0C58244EFB1F006438FC /* WBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
+		7B2B0C5F244F0D86006438FC /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		7B2B0C63244F3515006438FC /* WBStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusToolBar.swift; sourceTree = "<group>"; };
 		7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
 		7B5257A12437888E00F22453 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5257A42437888E00F22453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +153,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B2B0C51244EE4DB006438FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B2B0C52244EE50A006438FC /* WBStatusCell.xib */,
+				7B2B0C63244F3515006438FC /* WBStatusToolBar.swift */,
+				7B2B0C54244EE626006438FC /* WBStatusView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7B3D208B2447FA2C00851C16 /* UserAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				7BEC95AE243C79CF00C7036E /* StatusModel.swift */,
+				7B2B0C58244EFB1F006438FC /* WBUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				7B2AF9E4243C8DFF003F71A6 /* WBStatusListViewModel.swift */,
+				7B2B0C56244EEF2F006438FC /* WBStatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -225,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				7B5257C124378C1800F22453 /* Main */,
+				7B2B0C51244EE4DB006438FC /* View */,
 				7B5257BD24378C1800F22453 /* Home */,
 				7B5257BE24378C1800F22453 /* Discover */,
 				7B5257BF24378C1800F22453 /* Message */,
@@ -268,6 +293,7 @@
 		7B5257C124378C1800F22453 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7BF2ED2C244C457F00643E34 /* NewFeature */,
 				7B5DDAF4243B7F830067BA7C /* mian.json */,
 				7B5257C224378D6600F22453 /* WBMainViewController.swift */,
 				7B5257C424378D9000F22453 /* WBNavController.swift */,
@@ -277,10 +303,6 @@
 				7B525826243B56BE00F22453 /* WBVisitorView.swift */,
 				7B00CB4B2445F4CF00FF2888 /* WBLoginViewController.swift */,
 				7B5D18B0244B368200EE7CF8 /* WBNavButton.swift */,
-				7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */,
-				7BE44C42244BF455007F035B /* WBNewVersionView.swift */,
-				7BE44C44244BF474007F035B /* WBNewVersionView.xib */,
-				7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -321,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				7B5258222438525D00F22453 /* UIBarButtonItem+Extension.swift */,
+				7B2B0C5F244F0D86006438FC /* UIImage+Extension.swift */,
 			);
 			name = Extensions;
 			path = WeiBo/Classes/Tools/Extensions;
@@ -333,6 +356,17 @@
 				7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		7BF2ED2C244C457F00643E34 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */,
+				7BE44C42244BF455007F035B /* WBNewVersionView.swift */,
+				7BE44C44244BF474007F035B /* WBNewVersionView.xib */,
+				7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */,
+			);
+			path = NewFeature;
 			sourceTree = "<group>";
 		};
 		9D87EE03FD719E2F05D815AD /* Frameworks */ = {
@@ -414,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2B0C53244EE50A006438FC /* WBStatusCell.xib in Resources */,
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
 				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
 				7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */,
@@ -482,7 +517,9 @@
 				7B5257CB24378DE500F22453 /* WBDiscoverViewController.swift in Sources */,
 				7B5258232438525D00F22453 /* UIBarButtonItem+Extension.swift in Sources */,
 				7B5258152438331C00F22453 /* UILabel+CZAddition.m in Sources */,
+				7B2B0C55244EE626006438FC /* WBStatusView.swift in Sources */,
 				7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */,
+				7B2B0C57244EEF2F006438FC /* WBStatusViewModel.swift in Sources */,
 				7B5258132438331C00F22453 /* UIView+CZAddition.m in Sources */,
 				7B5258252438A6B000F22453 /* WBNavBar.swift in Sources */,
 				7B00CB4E2446AC9200FF2888 /* WBCommon.swift in Sources */,
@@ -496,6 +533,8 @@
 				7B5257C524378D9000F22453 /* WBNavController.swift in Sources */,
 				7B5258172438331C00F22453 /* NSString+CZPath.m in Sources */,
 				7B52581B2438331C00F22453 /* NSString+CZHash.m in Sources */,
+				7B2B0C60244F0D86006438FC /* UIImage+Extension.swift in Sources */,
+				7B2B0C59244EFB1F006438FC /* WBUser.swift in Sources */,
 				7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */,
 				7B5258162438331C00F22453 /* NSString+CZBase64.m in Sources */,
 				7B5258122438331C00F22453 /* UIColor+CZAddition.m in Sources */,
@@ -507,6 +546,7 @@
 				7B5257C324378D6600F22453 /* WBMainViewController.swift in Sources */,
 				7B5258142438331C00F22453 /* UIScreen+CZAddition.m in Sources */,
 				7B5257C724378DA600F22453 /* WBBaseViewController.swift in Sources */,
+				7B2B0C64244F3515006438FC /* WBStatusToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

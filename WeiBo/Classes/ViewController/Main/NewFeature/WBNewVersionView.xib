@@ -33,7 +33,7 @@
                         <action selector="enterButtonPressed:" destination="6Pw-CW-PJ5" eventType="touchUpInside" id="1tg-Yk-T6x"/>
                     </connections>
                 </button>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="yek-v8-1rN">
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="yek-v8-1rN">
                     <rect key="frame" x="179.5" y="817" width="55" height="37"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="55" id="0pz-FL-04t"/>
