@@ -28,6 +28,9 @@ class WBHomeViewController: WBBaseViewController {
         
         // 设置预估行高
         tableView?.estimatedRowHeight = 300
+        
+        // 取消分割线
+        tableView?.separatorStyle = .none
     }
     
     // 重写加载数据方法
@@ -68,7 +71,6 @@ class WBHomeViewController: WBBaseViewController {
         let viewModel = statusViewModelArray.statusModelArray[indexPath.row]
         
         cell.viewModel = viewModel
-        
         return cell
     }
 }

@@ -222,15 +222,22 @@ extension WBMainViewController {
         
         cls.title = title
         cls.tabBarItem = UITabBarItem(title: title, image: UIImage(named: "tabbar_" + imageName), selectedImage: UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal))
+ 
+        
+        
+        let vc = WBNavController(rootViewController: cls)
+        
         var font: UIFont {
             return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body)).withSize(12)
         }
         // 设置tabBar标题字体大小
-        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        //
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .selected)
         
         // 设置tabBar标题颜色
-        cls.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .selected)
-        let vc = WBNavController(rootViewController: cls)
+        vc.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.orange], for: .selected)
+        vc.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.darkGray], for: .normal)
         return vc
     }
 }

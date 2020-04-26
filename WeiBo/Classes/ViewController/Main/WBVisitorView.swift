@@ -10,7 +10,6 @@ import UIKit
 
 class WBVisitorView: UIView {
     
-    
     // 添加注册、登录按钮
     lazy var registBtn: UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.orange, backgroundImageName: "common_button_white_disable")
     lazy var loginBtn: UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, backgroundImageName: "common_button_white_disable")
@@ -31,7 +30,6 @@ class WBVisitorView: UIView {
     // 遮罩图像
     private lazy var maskWBImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
 
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
