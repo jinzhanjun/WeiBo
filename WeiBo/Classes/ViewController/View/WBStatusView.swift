@@ -10,9 +10,12 @@ import UIKit
 
 /// 微博Cell
 class WBStatusView: UITableViewCell {
-    
-    
+
+    /// 底部工具栏视图
     @IBOutlet weak var WBStatusToolBar: WBStatusToolBar!
+    
+    /// 配图视图
+    @IBOutlet weak var pictureView: WBStatusPictureView!
     
     var viewModel: WBStatusViewModel? {
         didSet {
@@ -29,11 +32,12 @@ class WBStatusView: UITableViewCell {
             // 设置VIP图标
             vipImageView.image = model.memberIcon
             
-            // 设置
-            
             // 设置微博内容
             statusLabel.text = model.statusModel.text
             
+            // 设置微博配图视图
+            // 根据配图数量确定配图视图高度
+            pictureView.statusModel = viewModel?.statusModel
             // 设置工具栏
             WBStatusToolBar.statusBarModel = model.statusModel
         }
@@ -56,9 +60,10 @@ class WBStatusView: UITableViewCell {
     
     /// 微博内容
     @IBOutlet weak var statusLabel: UILabel!
-    
+ 
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+
 }

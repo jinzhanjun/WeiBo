@@ -21,6 +21,11 @@ class StatusModel: NSObject {
     
     /// 微博来源
     @objc var source: String?
+    
+    /// 微博配图
+    @objc var pic_urls: [PictureModel]?
+    
+    
     ///   转发数
     @objc var reposts_count: Int = 0
     ///  评论数
@@ -30,5 +35,10 @@ class StatusModel: NSObject {
     
     override var description: String {
         return yy_modelDescription()
+    }
+    
+    /// 容器类属性标记
+    @objc class func modelContainerPropertyGenericClass() -> [String: AnyClass] {
+        return ["pic_urls": PictureModel.self]
     }
 }

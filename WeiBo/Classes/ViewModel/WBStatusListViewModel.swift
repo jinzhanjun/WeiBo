@@ -50,18 +50,9 @@ class WBStatusListViewModel {
                 model.yy_modelSet(withJSON: dict)
                 
                 let viewModel = WBStatusViewModel(model: model)
-                
                 array.append(viewModel)
             }
             
-//            print(json)
-            // 字典转模型
-//            guard let array = NSArray.yy_modelArray(with: StatusModel.self, json: json ?? []) as? [StatusModel]
-//                else {
-//                    complete(isSuccess, false)
-//                    return
-//            }
-
             print("加载了 \(array.count) 条微博")
 
             // 若没有获取到最新数据

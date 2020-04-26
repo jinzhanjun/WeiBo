@@ -55,6 +55,8 @@
 		7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */; };
 		7BEC95AD243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */; };
 		7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AE243C79CF00C7036E /* StatusModel.swift */; };
+		7BFDAA922455D8EA0066CD3C /* PictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA912455D8EA0066CD3C /* PictureModel.swift */; };
+		7BFDAA942455DB550066CD3C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */; };
 		AD4A4D181905F434F9A7DDDC /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkingController.swift; sourceTree = "<group>"; };
 		7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkingController + Extensions.swift"; sourceTree = "<group>"; };
 		7BEC95AE243C79CF00C7036E /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		7BFDAA912455D8EA0066CD3C /* PictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureModel.swift; sourceTree = "<group>"; };
+		7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		85BD268791BC789B13B126EC /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				7B2B0C52244EE50A006438FC /* WBStatusCell.xib */,
+				7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */,
 				7B2B0C63244F3515006438FC /* WBStatusToolBar.swift */,
 				7B2B0C54244EE626006438FC /* WBStatusView.swift */,
 			);
@@ -232,6 +237,7 @@
 			children = (
 				7BEC95AE243C79CF00C7036E /* StatusModel.swift */,
 				7B2B0C58244EFB1F006438FC /* WBUser.swift */,
+				7BFDAA912455D8EA0066CD3C /* PictureModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFDAA942455DB550066CD3C /* WBStatusPictureView.swift in Sources */,
 				7B5D18B1244B368200EE7CF8 /* WBNavButton.swift in Sources */,
 				7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */,
 				7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */,
@@ -530,6 +537,7 @@
 				7B52581A2438331C00F22453 /* UIViewController+CZAddition.m in Sources */,
 				7B5257CF24378DFC00F22453 /* WBProfileViewController.swift in Sources */,
 				7B00CB4C2445F4CF00FF2888 /* WBLoginViewController.swift in Sources */,
+				7BFDAA922455D8EA0066CD3C /* PictureModel.swift in Sources */,
 				7B5257C524378D9000F22453 /* WBNavController.swift in Sources */,
 				7B5258172438331C00F22453 /* NSString+CZPath.m in Sources */,
 				7B52581B2438331C00F22453 /* NSString+CZHash.m in Sources */,

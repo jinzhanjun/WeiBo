@@ -26,6 +26,13 @@ let OauthUrl: String = "https://api.weibo.com/oauth2/authorize"
 // 用户信息接口
 let UserInfoUrl: String = "https://api.weibo.com/2/users/show.json"
 
+
+/// 微博配图视图外边界
+let PictureViewOutMargin: CGFloat = 12
+
+/// 微博配图视图内边界
+let PictureViewInnerMargin: CGFloat = 12
+
 /// 增加通知的名字的属性
 extension NSNotification.Name {
     static var WBUserShouldLogon: NSNotification.Name {

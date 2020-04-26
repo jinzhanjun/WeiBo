@@ -112,12 +112,15 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8d-i4-dL3" userLabel="PictureView">
-                        <rect key="frame" x="0.0" y="210" width="653" height="300"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8d-i4-dL3" userLabel="PictureView" customClass="WBStatusPictureView" customModule="WeiBo" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="510" width="653" height="0.0"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="300" id="tz0-4C-3N6"/>
+                            <constraint firstAttribute="height" id="tz0-4C-3N6"/>
                         </constraints>
+                        <connections>
+                            <outlet property="pictureViewHeight" destination="tz0-4C-3N6" id="Uem-bQ-qIF"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>
@@ -151,12 +154,13 @@
                 <outlet property="WBStatusToolBar" destination="ljW-kw-IIk" id="Gq3-0L-TxD"/>
                 <outlet property="avatarImageView" destination="ZFL-30-wnt" id="alC-Uq-LK1"/>
                 <outlet property="nameLabel" destination="6RX-mX-WfW" id="Uu1-DF-Rux"/>
+                <outlet property="pictureView" destination="e8d-i4-dL3" id="2PY-I2-pOR"/>
                 <outlet property="sourceLabel" destination="xjW-BX-zxK" id="orN-tB-FJr"/>
                 <outlet property="statusLabel" destination="1jn-NF-5xO" id="ehk-fg-dIV"/>
                 <outlet property="timeLabel" destination="YRU-mT-naM" id="PTE-Jy-Zpq"/>
                 <outlet property="vipImageView" destination="ieh-W3-Due" id="OfC-fR-mgy"/>
             </connections>
-            <point key="canvasLocation" x="-1447" y="-224"/>
+            <point key="canvasLocation" x="-3856" y="-328"/>
         </tableViewCell>
     </objects>
     <resources>
