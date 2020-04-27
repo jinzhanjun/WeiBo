@@ -36,6 +36,8 @@ class WBStatusView: UITableViewCell {
             statusLabel.text = model.statusModel.text
             
             // 设置微博配图视图
+            
+            
             // 根据配图数量确定配图视图高度
             pictureView.statusModel = viewModel?.statusModel
             // 设置工具栏

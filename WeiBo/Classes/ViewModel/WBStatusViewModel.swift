@@ -33,4 +33,9 @@ class WBStatusViewModel {
         // 通过model 的 profile_image_url 获取用户头像
         
     }
+    
+    // 重新调整单张视图的大小
+    func resizeSiglePicView(with image: UIImage) {
+        statusModel.pic_urls?[0].siglePicSize = image.size
+    }
 }

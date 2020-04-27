@@ -58,27 +58,24 @@
                         <rect key="frame" x="0.0" y="510" width="653" height="56"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtK-P0-n1J">
-                                <rect key="frame" x="8" y="0.0" width="202" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="FVL-zH-tRP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="261.5" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="timeline_icon_retweet">
+                                <state key="normal" title="转发" image="timeline_icon_retweet">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS3-xy-5m0">
-                                <rect key="frame" x="218" y="-1" width="207" height="56"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <rect key="frame" x="261.5" y="0.0" width="232" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="评论" image="timeline_icon_comment">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGK-f1-Ogz">
-                                <rect key="frame" x="433" y="0.0" width="220" height="56"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <rect key="frame" x="493.5" y="0.0" width="159.5" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="赞" image="timeline_icon_unlike">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,18 +84,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oGK-f1-Ogz" secondAttribute="trailing" id="0dy-35-FCL"/>
+                            <constraint firstItem="JS3-xy-5m0" firstAttribute="centerY" secondItem="EtK-P0-n1J" secondAttribute="centerY" id="0fX-o8-8Jp"/>
                             <constraint firstAttribute="height" constant="56" id="1Qb-vD-diQ"/>
-                            <constraint firstItem="EtK-P0-n1J" firstAttribute="leading" secondItem="ljW-kw-IIk" secondAttribute="leading" constant="8" id="7GO-Qn-kNl"/>
-                            <constraint firstItem="JS3-xy-5m0" firstAttribute="height" secondItem="EtK-P0-n1J" secondAttribute="height" id="9o7-lO-4sm"/>
-                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="height" secondItem="JS3-xy-5m0" secondAttribute="height" id="BeU-TH-XlW"/>
-                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="centerY" secondItem="JS3-xy-5m0" secondAttribute="centerY" constant="1" id="DOB-nk-ljr"/>
-                            <constraint firstItem="JS3-xy-5m0" firstAttribute="centerY" secondItem="EtK-P0-n1J" secondAttribute="centerY" constant="-1" id="NNE-xa-YQb"/>
-                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="leading" secondItem="JS3-xy-5m0" secondAttribute="trailing" constant="8" id="PaQ-Wo-XT8"/>
-                            <constraint firstItem="EtK-P0-n1J" firstAttribute="centerY" secondItem="ljW-kw-IIk" secondAttribute="centerY" id="avb-y8-Wqr"/>
-                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="width" secondItem="JS3-xy-5m0" secondAttribute="width" multiplier="0.786611" constant="57.171548117154799" id="f52-KD-TBC"/>
-                            <constraint firstAttribute="trailing" secondItem="oGK-f1-Ogz" secondAttribute="trailing" id="pDN-Dh-x6S"/>
-                            <constraint firstItem="JS3-xy-5m0" firstAttribute="width" secondItem="EtK-P0-n1J" secondAttribute="width" multiplier="3.31944" constant="-463.52777777777783" id="qzV-RS-zxl"/>
-                            <constraint firstItem="JS3-xy-5m0" firstAttribute="leading" secondItem="EtK-P0-n1J" secondAttribute="trailing" constant="8" id="zxO-or-Z6R"/>
+                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="centerY" secondItem="JS3-xy-5m0" secondAttribute="centerY" id="93I-NU-0LS"/>
+                            <constraint firstItem="JS3-xy-5m0" firstAttribute="width" secondItem="EtK-P0-n1J" secondAttribute="width" multiplier="0.888889" id="Ccp-Re-dzc"/>
+                            <constraint firstItem="JS3-xy-5m0" firstAttribute="leading" secondItem="EtK-P0-n1J" secondAttribute="trailing" id="PbD-oX-jRh"/>
+                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="height" secondItem="JS3-xy-5m0" secondAttribute="height" id="Tzu-1X-QAW"/>
+                            <constraint firstItem="EtK-P0-n1J" firstAttribute="leading" secondItem="ljW-kw-IIk" secondAttribute="leading" id="aeS-Od-G1i"/>
+                            <constraint firstItem="JS3-xy-5m0" firstAttribute="centerY" secondItem="ljW-kw-IIk" secondAttribute="centerY" id="cPE-Wx-UxG"/>
+                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="leading" secondItem="JS3-xy-5m0" secondAttribute="trailing" id="kDo-hH-SpS"/>
+                            <constraint firstItem="oGK-f1-Ogz" firstAttribute="width" secondItem="JS3-xy-5m0" secondAttribute="width" multiplier="0.686275" id="mWk-Kj-hMl"/>
+                            <constraint firstAttribute="bottom" secondItem="EtK-P0-n1J" secondAttribute="bottom" id="t63-7X-JvU"/>
+                            <constraint firstItem="JS3-xy-5m0" firstAttribute="height" secondItem="EtK-P0-n1J" secondAttribute="height" id="wwq-yL-kma"/>
+                            <constraint firstItem="EtK-P0-n1J" firstAttribute="top" secondItem="ljW-kw-IIk" secondAttribute="top" id="zQz-Y6-BXn"/>
                         </constraints>
                         <connections>
                             <outlet property="criticalButton" destination="JS3-xy-5m0" id="58s-LG-4P1"/>
@@ -107,7 +106,7 @@
                         </connections>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-NF-5xO">
-                        <rect key="frame" x="12" y="96" width="39.5" height="19.5"/>
+                        <rect key="frame" x="12" y="96" width="39.5" height="414"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -137,7 +136,7 @@
                     <constraint firstItem="Pf9-uv-mh5" firstAttribute="top" secondItem="fGy-ly-gzG" secondAttribute="top" id="Nls-qR-XCf"/>
                     <constraint firstAttribute="bottom" secondItem="ljW-kw-IIk" secondAttribute="bottom" id="TEw-qL-OaT"/>
                     <constraint firstItem="ieh-W3-Due" firstAttribute="centerY" secondItem="6RX-mX-WfW" secondAttribute="centerY" id="TXQ-eB-dMi"/>
-                    <constraint firstItem="e8d-i4-dL3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1jn-NF-5xO" secondAttribute="bottom" constant="12" id="U7Y-NX-CKZ"/>
+                    <constraint firstItem="e8d-i4-dL3" firstAttribute="top" secondItem="1jn-NF-5xO" secondAttribute="bottom" id="U7Y-NX-CKZ"/>
                     <constraint firstItem="1jn-NF-5xO" firstAttribute="leading" secondItem="ZFL-30-wnt" secondAttribute="leading" id="UJQ-5m-hxG"/>
                     <constraint firstItem="e8d-i4-dL3" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" id="gRN-17-gwp"/>
                     <constraint firstItem="ljW-kw-IIk" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" id="je4-zX-BdP"/>
@@ -160,7 +159,7 @@
                 <outlet property="timeLabel" destination="YRU-mT-naM" id="PTE-Jy-Zpq"/>
                 <outlet property="vipImageView" destination="ieh-W3-Due" id="OfC-fR-mgy"/>
             </connections>
-            <point key="canvasLocation" x="-3856" y="-328"/>
+            <point key="canvasLocation" x="-3967.3913043478265" y="-398.4375"/>
         </tableViewCell>
     </objects>
     <resources>

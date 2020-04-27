@@ -11,33 +11,49 @@ import SDWebImage
 import AFNetworking
 
 class WBStatusPictureView: UIView {
-    
+    // 微博模型
     var statusModel: StatusModel? {
         didSet {
-            
-            
+            // 重新调整单张视图的大小
+            resizeImageView()
+            // 设定url，加载图片
             guard let urls = statusModel?.pic_urls else { return }
-            
-            /// 隐藏所有imageView
+            picUrls = urls
+        }
+    }
+    
+    // 图片的url
+    var picUrls: [PictureModel]? {
+        didSet {
+            // 隐藏所有imageView
             subviews.forEach{ $0.isHidden = true }
             
-            
-            /// 重新设置配图视图的高度
-            pictureViewHeight.constant = heightCalculator(with: urls.count)
-            
+            var index = 0
             // 设置配图图片
-            for i in 0..<urls.count {
+            for i in 0..<(picUrls?.count ?? 0) {
                 
-                // 显示图片
-                subviews[i].isHidden = false
+                // 如果是四张图片，则跳过设置第三张图片，直接设置第四张、第五张。
+                if picUrls?.count == 4 && i == 2 {
+                    index += 1
+                }
                 
-                if let sv = subviews[i] as? UIImageView,
-                    let urlStr = urls[i].thumbnail_pic
-                {
+                if let sv = subviews[index] as? UIImageView,
+                    let urlStr = picUrls?[i].thumbnail_pic,
                     let url = URL(string: urlStr)
-                    SDWebImageManager.shared.loadImage(with: url, options: [], context: nil, progress: nil) { (image, _, _, _, _, _) in
-                        sv.image = image
-                    }
+                {
+                    // 设置imageVie中image的填充模式 等比例填满
+                    sv.contentMode = .scaleAspectFill
+                    
+                    // 超出部分裁掉
+                    sv.clipsToBounds = true
+                    
+                    
+                    // SDWebImage框架从网络加载数据，
+                    // 如果url内容已经被缓存了，则不再通过网络加载！
+                    sv.setImageWith(url)
+                    // 显示图片
+                    subviews[index].isHidden = false
+                    index += 1
                 }
             }
         }
@@ -49,6 +65,36 @@ class WBStatusPictureView: UIView {
     /// 从nib中加载
     override func awakeFromNib() {
         setupUI()
+    }
+    
+    /// 根据是否为单张视图，调整内部imageView的大小
+    func resizeImageView() {
+        //MARK: - 单独设置单张配图的imageView的大小
+        if statusModel?.pic_urls?.count == 1 {
+            
+            let picSize = statusModel?.pic_urls?[0].siglePicSize ?? CGSize()
+            // 获取第一个imageView
+            let imageView = subviews[0]
+            let rect = CGRect(x: PictureViewOutMargin,
+                              y: PictureViewOutMargin,
+                              width: picSize.width,
+                              height: picSize.height)
+            // 设置单张配图的图片大小
+            imageView.frame = rect
+            pictureViewHeight.constant = 2 * PictureViewOutMargin + picSize.height
+        } else {
+            // 多图（无图）情况恢复原状
+            
+            // 计算图片frame
+            let rect = CGRect(x: PictureViewOutMargin,
+                              y: PictureViewOutMargin,
+                              width: PictureViewImageWidth,
+                              height: PictureViewImageHeiht)
+            
+            subviews[0].frame = rect
+            // 设置图片视图的高度
+            pictureViewHeight.constant = heightCalculator(with: statusModel?.pic_urls?.count ?? 0)
+        }
     }
     
     /// 设置界面
@@ -72,21 +118,21 @@ class WBStatusPictureView: UIView {
             let rowValue = i / 3 + 1
             // 计算所在列数
             let columnValue = i % 3 + 1
-            
-            // 计算图片宽高
-            let width = (UIScreen.cz_screenWidth() - 2 * (PictureViewOutMargin + PictureViewInnerMargin)) / CGFloat(count)
-            
-            // 计算图片高度
-            let height = width
+//
+//            // 计算图片宽高
+//            let width = (UIScreen.cz_screenWidth() - 2 * (PictureViewOutMargin + PictureViewInnerMargin)) / CGFloat(count)
+//
+//            // 计算图片高度
+//            let height = width
             
             // 计算图片frame
             let rect = CGRect(x: PictureViewOutMargin,
                               y: PictureViewOutMargin,
-                              width: width,
-                              height: height)
-            
-            let offsetX = CGFloat(columnValue - 1) * (width + PictureViewInnerMargin)
-            let offsetY = CGFloat(rowValue - 1) * (height + PictureViewInnerMargin)
+                              width: PictureViewImageWidth,
+                              height: PictureViewImageHeiht)
+            // 根据图片所在的行列，计算偏移量
+            let offsetX = CGFloat(columnValue - 1) * (PictureViewImageWidth + PictureViewInnerMargin)
+            let offsetY = CGFloat(rowValue - 1) * (PictureViewImageHeiht + PictureViewInnerMargin)
             
             
             // 设置图片frame

@@ -12,10 +12,10 @@ import Foundation
 var UserAccountFile = "WBUserAccount.json"
 
 // 应用识别代码
-let Uid: String = "691559675"
+let Uid: String = "1702281849"
 
 // 应用APPSecret
-let WBSecret = "1c05d47877fa9ecb9a4771b2d22d5be6"
+let WBSecret = "6bea576eb06abcbd81e63376e0e1e60d"
 
 // 回调地址
 let WBRedirect_URI: String = "http://baidu.com"
@@ -31,7 +31,12 @@ let UserInfoUrl: String = "https://api.weibo.com/2/users/show.json"
 let PictureViewOutMargin: CGFloat = 12
 
 /// 微博配图视图内边界
-let PictureViewInnerMargin: CGFloat = 12
+let PictureViewInnerMargin: CGFloat = 4
+
+/// 微博配图基础宽度
+let PictureViewImageWidth: CGFloat = (UIScreen.cz_screenWidth() - 2 * (PictureViewInnerMargin + PictureViewOutMargin)) / CGFloat(3)
+/// 微博配图基础高度
+let PictureViewImageHeiht = PictureViewImageWidth
 
 /// 增加通知的名字的属性
 extension NSNotification.Name {
