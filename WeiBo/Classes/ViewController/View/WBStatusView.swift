@@ -35,13 +35,17 @@ class WBStatusView: UITableViewCell {
             // 设置微博内容
             statusLabel.text = model.statusModel.text
             
-            // 设置微博配图视图
-            
+            // 设置转发微博内容
+            if viewModel?.statusModel.retweeted_status != nil {
+                let retWeetedStatus = viewModel!.statusModel.retweeted_status
+                
+                retweetStatusLabel?.text = "@\(retWeetedStatus!.user?.screen_name ?? ""): " + (retWeetedStatus?.text ?? "")
+            }
             
             // 根据配图数量确定配图视图高度
-            pictureView.statusModel = viewModel?.statusModel
+            pictureView.viewModel = model
             // 设置工具栏
-            WBStatusToolBar.statusBarModel = model.statusModel
+            WBStatusToolBar.statusBarModel = model
         }
     }
     
@@ -62,10 +66,17 @@ class WBStatusView: UITableViewCell {
     
     /// 微博内容
     @IBOutlet weak var statusLabel: UILabel!
- 
+    
+    /// 转发微博内容
+    @IBOutlet weak var retweetStatusLabel: UILabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        // 栅格化，滚动的时候，cell以图片的形式，停止后，恢复
+        layer.shouldRasterize = true
+        
+        layer.rasterizationScale = UIScreen.main.scale
     }
-
 }

@@ -12,12 +12,12 @@ import AFNetworking
 
 class WBStatusPictureView: UIView {
     // 微博模型
-    var statusModel: StatusModel? {
+    var viewModel: WBStatusViewModel? {
         didSet {
             // 重新调整单张视图的大小
             resizeImageView()
             // 设定url，加载图片
-            guard let urls = statusModel?.pic_urls else { return }
+            guard let urls = viewModel?.pic_urls else { return }
             picUrls = urls
         }
     }
@@ -41,13 +41,6 @@ class WBStatusPictureView: UIView {
                     let urlStr = picUrls?[i].thumbnail_pic,
                     let url = URL(string: urlStr)
                 {
-                    // 设置imageVie中image的填充模式 等比例填满
-                    sv.contentMode = .scaleAspectFill
-                    
-                    // 超出部分裁掉
-                    sv.clipsToBounds = true
-                    
-                    
                     // SDWebImage框架从网络加载数据，
                     // 如果url内容已经被缓存了，则不再通过网络加载！
                     sv.setImageWith(url)
@@ -70,21 +63,19 @@ class WBStatusPictureView: UIView {
     /// 根据是否为单张视图，调整内部imageView的大小
     func resizeImageView() {
         //MARK: - 单独设置单张配图的imageView的大小
-        if statusModel?.pic_urls?.count == 1 {
+        if viewModel?.pic_urls?.count == 1 {
             
-            let picSize = statusModel?.pic_urls?[0].siglePicSize ?? CGSize()
+            let picSize = viewModel?.picViewSize ?? CGSize()
             // 获取第一个imageView
             let imageView = subviews[0]
             let rect = CGRect(x: PictureViewOutMargin,
                               y: PictureViewOutMargin,
-                              width: picSize.width,
+                              width: picSize.width - 2 * PictureViewOutMargin,
                               height: picSize.height)
             // 设置单张配图的图片大小
             imageView.frame = rect
-            pictureViewHeight.constant = 2 * PictureViewOutMargin + picSize.height
         } else {
             // 多图（无图）情况恢复原状
-            
             // 计算图片frame
             let rect = CGRect(x: PictureViewOutMargin,
                               y: PictureViewOutMargin,
@@ -93,8 +84,8 @@ class WBStatusPictureView: UIView {
             
             subviews[0].frame = rect
             // 设置图片视图的高度
-            pictureViewHeight.constant = heightCalculator(with: statusModel?.pic_urls?.count ?? 0)
         }
+        pictureViewHeight.constant = viewModel?.picViewSize.height ?? 0
     }
     
     /// 设置界面
@@ -113,7 +104,13 @@ class WBStatusPictureView: UIView {
         let count = 3
         for i in 0..<count * count {
             let imageView = UIImageView()
-            imageView.backgroundColor = UIColor.red
+            
+            // 设置填充模式
+            imageView.contentMode = .scaleAspectFill
+            
+            imageView.clipsToBounds = true
+            
+//            imageView.backgroundColor = UIColor.red
             // 计算所在行数
             let rowValue = i / 3 + 1
             // 计算所在列数
@@ -140,30 +137,10 @@ class WBStatusPictureView: UIView {
             
             // 添加子视图
             addSubview(imageView)
+            
+            pictureViewHeight.constant = viewModel?.picViewSize.height ?? 0
         }
     }
     
-    /// 根据配图数量计算高度
-    private func heightCalculator(with count: Int) -> CGFloat {
-        
-        if count != 0 {
-            
-            // 计算行数
-            let rowCount = (count - 1) / 3 + 1
-            // 计算列数
-//            let columnCount = (count - 1) % 3 + 1
-            
-            // 计算配图宽高
-            let pictureWidth = (UIScreen.cz_screenWidth() - 2 * (PictureViewInnerMargin + PictureViewOutMargin)) / 3
-            
-            // 配图宽高相等
-            let pictureHeight = pictureWidth
-            
-            // 计算配图视图高度
-            let height = CGFloat(rowCount) * pictureHeight + 2 * PictureViewOutMargin + CGFloat(rowCount - 1) * PictureViewInnerMargin
-            
-            return height
-        }
-        return CGFloat(0)
-    }
+
 }

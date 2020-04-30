@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="WBStatusCell" rowHeight="566" id="Cnc-2R-rvv" customClass="WBStatusView" customModule="WeiBo" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="WBRetweetedStatusCell" rowHeight="566" id="Cnc-2R-rvv" customClass="WBStatusView" customModule="WeiBo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="653" height="566"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cnc-2R-rvv" id="fGy-ly-gzG">
@@ -54,16 +54,6 @@
                             <constraint firstAttribute="height" constant="12" id="TuU-75-cpz"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8d-i4-dL3" userLabel="PictureView" customClass="WBStatusPictureView" customModule="WeiBo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="319" width="653" height="200"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="200" id="tz0-4C-3N6"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="pictureViewHeight" destination="tz0-4C-3N6" id="Uem-bQ-qIF"/>
-                        </connections>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljW-kw-IIk" customClass="WBStatusToolBar" customModule="WeiBo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="531" width="653" height="35"/>
                         <subviews>
@@ -116,9 +106,29 @@
                         </connections>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-NF-5xO">
-                        <rect key="frame" x="12" y="70" width="37.5" height="249"/>
+                        <rect key="frame" x="12" y="70" width="37.5" height="108"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrg-UM-1hL">
+                        <rect key="frame" x="0.0" y="190" width="653" height="341"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8d-i4-dL3" userLabel="PictureView" customClass="WBStatusPictureView" customModule="WeiBo" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="219" width="653" height="300"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="300" id="tz0-4C-3N6"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="pictureViewHeight" destination="tz0-4C-3N6" id="Uem-bQ-qIF"/>
+                        </connections>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1X-68-r0O">
+                        <rect key="frame" x="12" y="202" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -127,18 +137,23 @@
                     <constraint firstItem="YRU-mT-naM" firstAttribute="top" secondItem="6RX-mX-WfW" secondAttribute="bottom" constant="6" id="ADW-m6-dbB"/>
                     <constraint firstItem="xjW-BX-zxK" firstAttribute="leading" secondItem="YRU-mT-naM" secondAttribute="trailing" constant="6" id="AGR-LQ-ZII"/>
                     <constraint firstItem="6RX-mX-WfW" firstAttribute="leading" secondItem="ZFL-30-wnt" secondAttribute="trailing" constant="12" id="Aih-xE-Cnt"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d1X-68-r0O" secondAttribute="trailing" constant="12" id="Bks-rn-SXJ"/>
                     <constraint firstItem="ieh-W3-Due" firstAttribute="leading" secondItem="6RX-mX-WfW" secondAttribute="trailing" constant="6" id="Cvp-j5-uzw"/>
                     <constraint firstItem="6RX-mX-WfW" firstAttribute="top" secondItem="ZFL-30-wnt" secondAttribute="top" constant="4" id="EDT-4y-dMw"/>
                     <constraint firstAttribute="trailing" secondItem="ljW-kw-IIk" secondAttribute="trailing" id="Ezv-ec-Mfa"/>
+                    <constraint firstItem="d1X-68-r0O" firstAttribute="top" secondItem="wrg-UM-1hL" secondAttribute="top" constant="12" id="FAs-d5-nav"/>
                     <constraint firstAttribute="trailing" secondItem="e8d-i4-dL3" secondAttribute="trailing" id="H4J-U3-8Sz"/>
+                    <constraint firstItem="wrg-UM-1hL" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" id="I6h-I0-6dm"/>
+                    <constraint firstItem="wrg-UM-1hL" firstAttribute="top" secondItem="1jn-NF-5xO" secondAttribute="bottom" constant="12" id="Jiu-vT-Hac"/>
                     <constraint firstItem="Pf9-uv-mh5" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" id="KCw-tY-bFN"/>
                     <constraint firstItem="xjW-BX-zxK" firstAttribute="centerY" secondItem="YRU-mT-naM" secondAttribute="centerY" id="LYr-S2-7eo"/>
                     <constraint firstItem="Pf9-uv-mh5" firstAttribute="top" secondItem="fGy-ly-gzG" secondAttribute="top" id="Nls-qR-XCf"/>
+                    <constraint firstAttribute="trailing" secondItem="wrg-UM-1hL" secondAttribute="trailing" id="Rff-bX-tDA"/>
                     <constraint firstAttribute="bottom" secondItem="ljW-kw-IIk" secondAttribute="bottom" id="TEw-qL-OaT"/>
                     <constraint firstItem="ieh-W3-Due" firstAttribute="centerY" secondItem="6RX-mX-WfW" secondAttribute="centerY" id="TXQ-eB-dMi"/>
-                    <constraint firstItem="e8d-i4-dL3" firstAttribute="top" secondItem="1jn-NF-5xO" secondAttribute="bottom" id="U7Y-NX-CKZ"/>
                     <constraint firstItem="1jn-NF-5xO" firstAttribute="leading" secondItem="ZFL-30-wnt" secondAttribute="leading" id="UJQ-5m-hxG"/>
                     <constraint firstItem="e8d-i4-dL3" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" id="gRN-17-gwp"/>
+                    <constraint firstItem="e8d-i4-dL3" firstAttribute="top" secondItem="d1X-68-r0O" secondAttribute="bottom" id="gUI-Yo-wQM"/>
                     <constraint firstItem="ljW-kw-IIk" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" id="je4-zX-BdP"/>
                     <constraint firstItem="ZFL-30-wnt" firstAttribute="top" secondItem="Pf9-uv-mh5" secondAttribute="bottom" constant="12" id="mwp-Cf-P5R"/>
                     <constraint firstItem="YRU-mT-naM" firstAttribute="leading" secondItem="6RX-mX-WfW" secondAttribute="leading" id="p5Z-mj-ye7"/>
@@ -146,6 +161,8 @@
                     <constraint firstItem="1jn-NF-5xO" firstAttribute="top" secondItem="ZFL-30-wnt" secondAttribute="bottom" constant="12" id="qyl-c7-dNe"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1jn-NF-5xO" secondAttribute="trailing" constant="12" id="r1q-qx-H5F"/>
                     <constraint firstItem="ZFL-30-wnt" firstAttribute="leading" secondItem="fGy-ly-gzG" secondAttribute="leading" constant="12" id="s6N-S0-TEo"/>
+                    <constraint firstItem="d1X-68-r0O" firstAttribute="leading" secondItem="1jn-NF-5xO" secondAttribute="leading" id="yHr-xh-ozs"/>
+                    <constraint firstItem="ljW-kw-IIk" firstAttribute="top" secondItem="wrg-UM-1hL" secondAttribute="bottom" id="yMJ-eA-qJK"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -154,12 +171,13 @@
                 <outlet property="avatarImageView" destination="ZFL-30-wnt" id="alC-Uq-LK1"/>
                 <outlet property="nameLabel" destination="6RX-mX-WfW" id="Uu1-DF-Rux"/>
                 <outlet property="pictureView" destination="e8d-i4-dL3" id="2PY-I2-pOR"/>
+                <outlet property="retweetStatusLabel" destination="d1X-68-r0O" id="VjG-bh-HgI"/>
                 <outlet property="sourceLabel" destination="xjW-BX-zxK" id="orN-tB-FJr"/>
                 <outlet property="statusLabel" destination="1jn-NF-5xO" id="ehk-fg-dIV"/>
                 <outlet property="timeLabel" destination="YRU-mT-naM" id="PTE-Jy-Zpq"/>
                 <outlet property="vipImageView" destination="ieh-W3-Due" id="OfC-fR-mgy"/>
             </connections>
-            <point key="canvasLocation" x="-4438" y="-417"/>
+            <point key="canvasLocation" x="-1572" y="-723"/>
         </tableViewCell>
     </objects>
     <resources>

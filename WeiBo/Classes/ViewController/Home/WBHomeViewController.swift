@@ -22,12 +22,17 @@ class WBHomeViewController: WBBaseViewController {
         navItem.titleView = button
         
         // 注册原型Cell
+        // 微博
         tableView?.register(UINib(nibName: "WBStatusCell", bundle: nil), forCellReuseIdentifier: "WBStatusCell")
+        // 转发微博
+        tableView?.register(UINib(nibName: "WBRetweetedStatusCell", bundle: nil), forCellReuseIdentifier: "WBRetweetedStatusCell")
+        
         
         tableView?.cellLayoutMarginsFollowReadableWidth = true
         
         // 设置预估行高
-        tableView?.estimatedRowHeight = 300
+        // 如果不设置会报：unable to determine interface classification without an established connection
+        tableView?.estimatedRowHeight = 0
         
         // 取消分割线
         tableView?.separatorStyle = .none
@@ -65,10 +70,24 @@ class WBHomeViewController: WBBaseViewController {
         statusViewModelArray.statusModelArray.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return statusViewModelArray.statusModelArray[indexPath.row].cellHeight ?? CGFloat(0)
+        
+//        return CGFloat(400)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WBStatusCell", for: indexPath) as! WBStatusView
+        
+        var cellID = "WBStatusCell"
         
         let viewModel = statusViewModelArray.statusModelArray[indexPath.row]
+        
+        if viewModel.statusModel.retweeted_status != nil {
+            cellID = "WBRetweetedStatusCell"
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusView
         
         cell.viewModel = viewModel
         return cell

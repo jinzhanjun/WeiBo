@@ -70,14 +70,8 @@ class WBStatusListViewModel {
                 self.statusModelArray = array + self.statusModelArray
             }
             
-//            for model in array {
-//                model.statusModel.pic_urls?.forEach{  }
-//            }
             // GCD，监听异步加载是否已经完成，为了提前计算行高，而不是动态计算行高，提升性能！
             self.cacheSingleImage(modelArray: self.statusModelArray, finished: complete)
-            
-            // 完成回调
-//            complete(isSuccess, true)
         }
     }
     
@@ -97,7 +91,7 @@ class WBStatusListViewModel {
 //            print(statusViewModel.statusModel.pic_urls?.count)
             
             // 到此为止，有且仅有一张图片
-            guard let urlStr = statusViewModel.statusModel.pic_urls?[0].thumbnail_pic else { return }
+            guard let urlStr = statusViewModel.pic_urls?[0].thumbnail_pic else { return }
             // 单张配图url
             let url = URL(string: urlStr)
             

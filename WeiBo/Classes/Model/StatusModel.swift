@@ -22,9 +22,10 @@ class StatusModel: NSObject {
     /// 微博来源
     @objc var source: String?
     
+    /// 转发微博
+    @objc var retweeted_status: StatusModel?
     /// 微博配图
     @objc var pic_urls: [PictureModel]?
-    
     
     ///   转发数
     @objc var reposts_count: Int = 0

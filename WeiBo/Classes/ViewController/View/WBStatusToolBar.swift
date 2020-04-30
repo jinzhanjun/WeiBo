@@ -10,7 +10,7 @@ import UIKit
 
 class WBStatusToolBar: UIView {
     
-    var statusBarModel: StatusModel? {
+    var statusBarModel: WBStatusViewModel? {
         didSet{
             if let model = statusBarModel {
                 retweetButton.setTitle(checkCount(with: model.reposts_count, placeHolder: "转发"), for: .normal)
