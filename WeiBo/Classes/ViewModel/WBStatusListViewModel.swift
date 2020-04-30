@@ -86,9 +86,7 @@ class WBStatusListViewModel {
         modelArray.forEach{ statusViewModel in
             
             // 判断是否是单张图片, 如果不是1张图片，就返回
-            if statusViewModel.statusModel.pic_urls?.count != 1 { return }
-            
-//            print(statusViewModel.statusModel.pic_urls?.count)
+            if statusViewModel.pic_urls?.count != 1 { return }
             
             // 到此为止，有且仅有一张图片
             guard let urlStr = statusViewModel.pic_urls?[0].thumbnail_pic else { return }
@@ -125,7 +123,7 @@ class WBStatusListViewModel {
         // 异步执行结束后，发送消息
         group.notify(queue: DispatchQueue.main) {
             
-            print("共缓存： \(siglePicSize)KB")
+            print("共缓存： \(siglePicSize / 1000 )KB")
             // 缓存完成，回调（配置模型，列表视图加载内容）
             finished(true, true)
         }

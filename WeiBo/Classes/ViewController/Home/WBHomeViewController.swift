@@ -31,7 +31,6 @@ class WBHomeViewController: WBBaseViewController {
         tableView?.cellLayoutMarginsFollowReadableWidth = true
         
         // 设置预估行高
-        // 如果不设置会报：unable to determine interface classification without an established connection
         tableView?.estimatedRowHeight = 0
         
         // 取消分割线
