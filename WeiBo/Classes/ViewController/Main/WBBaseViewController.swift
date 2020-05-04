@@ -29,7 +29,7 @@ class WBBaseViewController: UIViewController {
     // 表格
     var tableView: UITableView?
     // 刷新控制器
-    var refreshController: UIRefreshControl?
+    var refreshController: WBRefreshController?
     
     // 标题
     override var title: String? {
@@ -146,7 +146,7 @@ class WBBaseViewController: UIViewController {
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
         // 设置刷新
-        refreshController = UIRefreshControl()
+        refreshController = WBRefreshController()
         // 添加监听方法
         refreshController?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView?.addSubview(refreshController!)

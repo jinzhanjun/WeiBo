@@ -30,6 +30,8 @@ class WBNetWorkingController: AFHTTPSessionManager {
     // 封装一个专门做新浪微博请求的方法
     func tokenRequest(requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
         
+        
+        
         guard let token = userAccount.access_token
             else {
                 
@@ -81,9 +83,13 @@ class WBNetWorkingController: AFHTTPSessionManager {
         if method == .GET {
             // get 方法
             get(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
+            
+            
+            
         } else {
             // post 方法
             post(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
+            
         }
     }
 }

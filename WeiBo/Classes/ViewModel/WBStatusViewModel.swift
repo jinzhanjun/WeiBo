@@ -82,7 +82,7 @@ class WBStatusViewModel {
             with: CGSize(width: UIScreen.cz_screenWidth() - 2 * PictureViewOutMargin,height: CGFloat(MAXFLOAT)),
             options: [.usesLineFragmentOrigin],
             attributes: [.font: UIFont.systemFont(ofSize: 15)],
-            context: .none).height
+            context: nil).height
         
         if statusModel.retweeted_status != nil {
             height += 12
@@ -95,7 +95,7 @@ class WBStatusViewModel {
                 with: CGSize(width: UIScreen.cz_screenWidth() - 2 * PictureViewOutMargin, height: CGFloat(MAXFLOAT)),
                 options: [.usesLineFragmentOrigin],
                 attributes: [.font: UIFont.systemFont(ofSize: 14)],
-                context: .none).height
+                context: nil).height
         }
         
         height += picViewSize.height

@@ -49,6 +49,9 @@
 		7B5D18B3244B4DBC00EE7CF8 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */; };
 		7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */; };
 		7B5DDAF5243B7F830067BA7C /* mian.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DDAF4243B7F830067BA7C /* mian.json */; };
+		7B8C773924605468003DDF35 /* WBRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C773824605468003DDF35 /* WBRefreshController.swift */; };
+		7B8C77652460898D003DDF35 /* WBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C77632460898D003DDF35 /* WBRefreshView.swift */; };
+		7B8C77662460898D003DDF35 /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C77642460898D003DDF35 /* WBRefreshView.xib */; };
 		7B9487762456CB9400721A96 /* WBRetweetedStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9487752456CB9400721A96 /* WBRetweetedStatusCell.xib */; };
 		7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44C42244BF455007F035B /* WBNewVersionView.swift */; };
 		7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE44C44244BF474007F035B /* WBNewVersionView.xib */; };
@@ -136,6 +139,9 @@
 		7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		7B5DDAF4243B7F830067BA7C /* mian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mian.json; sourceTree = "<group>"; };
+		7B8C773824605468003DDF35 /* WBRefreshController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshController.swift; sourceTree = "<group>"; };
+		7B8C77632460898D003DDF35 /* WBRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshView.swift; sourceTree = "<group>"; };
+		7B8C77642460898D003DDF35 /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		7B9487752456CB9400721A96 /* WBRetweetedStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRetweetedStatusCell.xib; sourceTree = "<group>"; };
 		7BE44C42244BF455007F035B /* WBNewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewVersionView.swift; sourceTree = "<group>"; };
 		7BE44C44244BF474007F035B /* WBNewVersionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewVersionView.xib; sourceTree = "<group>"; };
@@ -302,6 +308,7 @@
 		7B5257C124378C1800F22453 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7B8C77372460543F003DDF35 /* RefreshController */,
 				7BF2ED2C244C457F00643E34 /* NewFeature */,
 				7B5DDAF4243B7F830067BA7C /* mian.json */,
 				7B5257C224378D6600F22453 /* WBMainViewController.swift */,
@@ -357,6 +364,16 @@
 			name = Extensions;
 			path = WeiBo/Classes/Tools/Extensions;
 			sourceTree = SOURCE_ROOT;
+		};
+		7B8C77372460543F003DDF35 /* RefreshController */ = {
+			isa = PBXGroup;
+			children = (
+				7B8C77632460898D003DDF35 /* WBRefreshView.swift */,
+				7B8C77642460898D003DDF35 /* WBRefreshView.xib */,
+				7B8C773824605468003DDF35 /* WBRefreshController.swift */,
+			);
+			path = RefreshController;
+			sourceTree = "<group>";
 		};
 		7BEC95A9243C5E8900C7036E /* NetWork */ = {
 			isa = PBXGroup;
@@ -462,6 +479,7 @@
 				7B9487762456CB9400721A96 /* WBRetweetedStatusCell.xib in Resources */,
 				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
 				7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */,
+				7B8C77662460898D003DDF35 /* WBRefreshView.xib in Resources */,
 				7B5257AE2437889100F22453 /* Assets.xcassets in Resources */,
 				7B5DDAF5243B7F830067BA7C /* mian.json in Resources */,
 			);
@@ -524,6 +542,7 @@
 				7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */,
 				7B3D208D2447FA4F00851C16 /* WBUserAccount.swift in Sources */,
 				7B5257F72437A47700F22453 /* Bundle+Extension.swift in Sources */,
+				7B8C77652460898D003DDF35 /* WBRefreshView.swift in Sources */,
 				7B52581C2438331C00F22453 /* NSAttributedString+CZAdditon.m in Sources */,
 				7B5257CB24378DE500F22453 /* WBDiscoverViewController.swift in Sources */,
 				7B5258232438525D00F22453 /* UIBarButtonItem+Extension.swift in Sources */,
@@ -536,6 +555,7 @@
 				7B00CB4E2446AC9200FF2888 /* WBCommon.swift in Sources */,
 				7B5258192438331C00F22453 /* NSObject+CZRuntime.m in Sources */,
 				7B5257A72437888E00F22453 /* SceneDelegate.swift in Sources */,
+				7B8C773924605468003DDF35 /* WBRefreshController.swift in Sources */,
 				7BEC95AD243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift in Sources */,
 				7B5257C924378DD400F22453 /* WBHomeViewController.swift in Sources */,
 				7B52581A2438331C00F22453 /* UIViewController+CZAddition.m in Sources */,
