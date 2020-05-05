@@ -73,6 +73,8 @@ class WBStatusView: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // 离屏渲染
+        layer.drawsAsynchronously = true
         
         // 栅格化，滚动的时候，cell以图片的形式，停止后，恢复
         layer.shouldRasterize = true

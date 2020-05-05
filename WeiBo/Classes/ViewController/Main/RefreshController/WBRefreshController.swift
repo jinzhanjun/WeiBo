@@ -9,13 +9,15 @@
 import UIKit
 
 /// 刷新临界点
-let refreshHeight: CGFloat = 80
+let refreshHeight: CGFloat = 60
 
 /// 下拉刷新控制器
 class WBRefreshController: UIControl {
     
+    /// 父视图的navBar的高度
+    var scrollViewContentInsetTop: CGFloat?
     /// 父视图
-    var scrollView: UIScrollView?
+    private weak var scrollView: UIScrollView?
     
     /// 子视图
     lazy var refreshView = WBRefreshView.refreshView()
@@ -40,15 +42,18 @@ class WBRefreshController: UIControl {
         guard let sv = newSuperview as? UIScrollView else {
             return
         }
-        
         scrollView = sv
+        scrollViewContentInsetTop = scrollView?.contentInset.top
         // 监听scrollView的滚动情况
         scrollView?.addObserver(self, forKeyPath: "contentOffset", options: [.new], context: nil)
+        
+        
     }
     
-    deinit {
+    override func removeFromSuperview() {
         // 销毁时移除监听
         scrollView?.removeObserver(self, forKeyPath: "contentOffset")
+        superview?.removeFromSuperview()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -86,15 +91,37 @@ class WBRefreshController: UIControl {
                 
                 // 开始刷新
                 beginRefreshing()
-                
-                
+            }
+        }
+    }
+    /// 开始刷新
+    func beginRefreshing() {
+        
+        refreshView.refreshState = .WillRefresh
+        
+        scrollView?.contentInset = UIEdgeInsets(top: refreshHeight + (scrollViewContentInsetTop ?? 0), left: 0, bottom: 0, right: 0)
+        
+        sendActions(for: .valueChanged)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            
+            // 完成后就恢复为下拉刷新
+            self.refreshView.refreshState = .Normal
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView?.contentInset = UIEdgeInsets(top: self.scrollViewContentInsetTop ?? 0, left: 0, bottom: 0, right: 0)
             }
         }
     }
     
+    /// 结束刷新
+    func endRefreshing() {
+        
+    }
+    
     /// 从XIB中设置界面
     private func setupUI() {
-        clipsToBounds = true
+        
+//        clipsToBounds = true
         /// 添加视图
         addSubview(refreshView)
         
@@ -134,18 +161,5 @@ class WBRefreshController: UIControl {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: refreshView.bounds.height))
-        
-    }
-    /// 结束刷新
-    func endRefreshing() {
-        
-    }
-    /// 开始刷新
-    func beginRefreshing() {
-        
-        sendActions(for: .valueChanged)
-        
-        // 完成后就恢复为下拉刷新
-        refreshView.refreshState = .Normal
     }
 }
