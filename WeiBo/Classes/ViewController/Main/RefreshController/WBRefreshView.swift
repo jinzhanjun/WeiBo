@@ -25,6 +25,8 @@ enum RefreshState {
 
 
 class WBRefreshView: UIView {
+    /// 父视图高度
+    var superviewHeight: CGFloat?
     
     /// 刷新状态
     var refreshState = RefreshState() {

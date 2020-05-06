@@ -9,7 +9,7 @@
 import UIKit
 
 /// 刷新临界点
-let refreshHeight: CGFloat = 60
+let refreshHeight: CGFloat = 120
 
 /// 下拉刷新控制器
 class WBRefreshController: UIControl {
@@ -19,8 +19,11 @@ class WBRefreshController: UIControl {
     /// 父视图
     private weak var scrollView: UIScrollView?
     
+    /// refreshController的高度
+    private var viewHeight: CGFloat?
+    
     /// 子视图
-    lazy var refreshView = WBRefreshView.refreshView()
+    lazy var refreshView = WBMTRefreshView.refreshView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +76,11 @@ class WBRefreshController: UIControl {
         
         frame = rect
         
+        // 设置 refresh 的 superviewHeight 属性
+        if refreshView.refreshState != .WillRefresh {
+            refreshView.superviewHeight = frame.height
+        }
+        
         // 如果正在拖拽
         if sv.isDragging {
             
@@ -97,16 +105,24 @@ class WBRefreshController: UIControl {
     /// 开始刷新
     func beginRefreshing() {
         
+        // 设置视图的刷新状态-即将刷新
         refreshView.refreshState = .WillRefresh
         
+        // 设置刷新状态时的间距
         scrollView?.contentInset = UIEdgeInsets(top: refreshHeight + (scrollViewContentInsetTop ?? 0), left: 0, bottom: 0, right: 0)
         
+        // 发送通知
         sendActions(for: .valueChanged)
         
+        // 设置 refreshView 的 superviewHeight
+        refreshView.superviewHeight = refreshHeight
+        
+        // 模拟刷新，延迟两秒。
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            
             // 完成后就恢复为下拉刷新
             self.refreshView.refreshState = .Normal
+            
+            // 防止恢复比较突兀
             UIView.animate(withDuration: 0.25) {
                 self.scrollView?.contentInset = UIEdgeInsets(top: self.scrollViewContentInsetTop ?? 0, left: 0, bottom: 0, right: 0)
             }
