@@ -71,8 +71,10 @@ class WBMainViewController: UITabBarController {
         classDic.forEach{ addChild(childController(with: $0)) }
     }
     
+    /// 撰写微博页面
     @objc private func compose() {
-        print("撰写微博")
+        let v = WBComposeView.composeTypeView()
+        v.show()
     }
     
     /// 设置时钟

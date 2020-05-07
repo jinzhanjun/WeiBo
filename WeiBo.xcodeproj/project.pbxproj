@@ -53,6 +53,8 @@
 		7B8C77652460898D003DDF35 /* WBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C77632460898D003DDF35 /* WBRefreshView.swift */; };
 		7B8C77662460898D003DDF35 /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C77642460898D003DDF35 /* WBRefreshView.xib */; };
 		7B9487762456CB9400721A96 /* WBRetweetedStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9487752456CB9400721A96 /* WBRetweetedStatusCell.xib */; };
+		7BC1682024647011009E29F2 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC1681F24647011009E29F2 /* WBComposeView.swift */; };
+		7BC1682224647138009E29F2 /* WBComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC1682124647138009E29F2 /* WBComposeView.xib */; };
 		7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44C42244BF455007F035B /* WBNewVersionView.swift */; };
 		7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE44C44244BF474007F035B /* WBNewVersionView.xib */; };
 		7BEC959F243C434D00C7036E /* Pods_WeiBo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -61,6 +63,8 @@
 		7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AE243C79CF00C7036E /* StatusModel.swift */; };
 		7BFDAA922455D8EA0066CD3C /* PictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA912455D8EA0066CD3C /* PictureModel.swift */; };
 		7BFDAA942455DB550066CD3C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */; };
+		7BFFB17F246289ED0003F897 /* WBMeiTuanRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFB17E246289EC0003F897 /* WBMeiTuanRefreshView.xib */; };
+		7BFFB181246289F60003F897 /* WBMTRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFB180246289F60003F897 /* WBMTRefreshView.swift */; };
 		AD4A4D181905F434F9A7DDDC /* Pods_WeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BD268791BC789B13B126EC /* Pods_WeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +147,8 @@
 		7B8C77632460898D003DDF35 /* WBRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshView.swift; sourceTree = "<group>"; };
 		7B8C77642460898D003DDF35 /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		7B9487752456CB9400721A96 /* WBRetweetedStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRetweetedStatusCell.xib; sourceTree = "<group>"; };
+		7BC1681F24647011009E29F2 /* WBComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeView.swift; sourceTree = "<group>"; };
+		7BC1682124647138009E29F2 /* WBComposeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeView.xib; sourceTree = "<group>"; };
 		7BE44C42244BF455007F035B /* WBNewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewVersionView.swift; sourceTree = "<group>"; };
 		7BE44C44244BF474007F035B /* WBNewVersionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewVersionView.xib; sourceTree = "<group>"; };
 		7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkingController.swift; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 		7BEC95AE243C79CF00C7036E /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		7BFDAA912455D8EA0066CD3C /* PictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureModel.swift; sourceTree = "<group>"; };
 		7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
+		7BFFB17E246289EC0003F897 /* WBMeiTuanRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBMeiTuanRefreshView.xib; sourceTree = "<group>"; };
+		7BFFB180246289F60003F897 /* WBMTRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBMTRefreshView.swift; sourceTree = "<group>"; };
 		85BD268791BC789B13B126EC /* Pods_WeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -311,6 +319,7 @@
 				7B8C77372460543F003DDF35 /* RefreshController */,
 				7BF2ED2C244C457F00643E34 /* NewFeature */,
 				7B5DDAF4243B7F830067BA7C /* mian.json */,
+				7BC1681E24646FE5009E29F2 /* ComposeTypeView */,
 				7B5257C224378D6600F22453 /* WBMainViewController.swift */,
 				7B5257C424378D9000F22453 /* WBNavController.swift */,
 				7B5257C624378DA600F22453 /* WBBaseViewController.swift */,
@@ -370,10 +379,22 @@
 			children = (
 				7B8C77632460898D003DDF35 /* WBRefreshView.swift */,
 				7B8C77642460898D003DDF35 /* WBRefreshView.xib */,
+				7BFFB17E246289EC0003F897 /* WBMeiTuanRefreshView.xib */,
+				7BFFB180246289F60003F897 /* WBMTRefreshView.swift */,
 				7B8C773824605468003DDF35 /* WBRefreshController.swift */,
 			);
 			path = RefreshController;
 			sourceTree = "<group>";
+		};
+		7BC1681E24646FE5009E29F2 /* ComposeTypeView */ = {
+			isa = PBXGroup;
+			children = (
+				7BC1681F24647011009E29F2 /* WBComposeView.swift */,
+				7BC1682124647138009E29F2 /* WBComposeView.xib */,
+			);
+			name = ComposeTypeView;
+			path = WeiBo/Classes/ViewController/Main/ComposeTypeView;
+			sourceTree = SOURCE_ROOT;
 		};
 		7BEC95A9243C5E8900C7036E /* NetWork */ = {
 			isa = PBXGroup;
@@ -474,11 +495,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFFB17F246289ED0003F897 /* WBMeiTuanRefreshView.xib in Resources */,
 				7B2B0C53244EE50A006438FC /* WBStatusCell.xib in Resources */,
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
 				7B9487762456CB9400721A96 /* WBRetweetedStatusCell.xib in Resources */,
 				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
 				7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */,
+				7BC1682224647138009E29F2 /* WBComposeView.xib in Resources */,
 				7B8C77662460898D003DDF35 /* WBRefreshView.xib in Resources */,
 				7B5257AE2437889100F22453 /* Assets.xcassets in Resources */,
 				7B5DDAF5243B7F830067BA7C /* mian.json in Resources */,
@@ -540,6 +563,7 @@
 				7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */,
 				7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */,
 				7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */,
+				7BC1682024647011009E29F2 /* WBComposeView.swift in Sources */,
 				7B3D208D2447FA4F00851C16 /* WBUserAccount.swift in Sources */,
 				7B5257F72437A47700F22453 /* Bundle+Extension.swift in Sources */,
 				7B8C77652460898D003DDF35 /* WBRefreshView.swift in Sources */,
@@ -570,6 +594,7 @@
 				7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */,
 				7B5258162438331C00F22453 /* NSString+CZBase64.m in Sources */,
 				7B5258122438331C00F22453 /* UIColor+CZAddition.m in Sources */,
+				7BFFB181246289F60003F897 /* WBMTRefreshView.swift in Sources */,
 				7B5257CD24378DEF00F22453 /* WBMessageViewController.swift in Sources */,
 				7B52581D2438331C00F22453 /* NSArray+Log.m in Sources */,
 				7B5258182438331C00F22453 /* UIButton+CZAddition.m in Sources */,

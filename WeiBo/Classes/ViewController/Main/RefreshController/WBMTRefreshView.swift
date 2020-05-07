@@ -49,9 +49,9 @@ class WBMTRefreshView: WBRefreshView {
 
                 // 地球转动
                 let anim = CABasicAnimation(keyPath: "transform.rotation")
-                anim.toValue = -2 * Double.pi
-                anim.duration = 3
-                anim.repeatCount = HUGE
+                anim.toValue = -4 * Double.pi
+                anim.duration = 6
+                anim.repeatCount = MAXFLOAT
                 anim.isRemovedOnCompletion = false
                 earthImageView.layer.add(anim, forKey: nil)
                 

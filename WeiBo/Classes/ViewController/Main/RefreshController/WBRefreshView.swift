@@ -84,4 +84,10 @@ class WBRefreshView: UIView {
         let nib = UINib(nibName: "WBRefreshView", bundle: nil)
         return nib.instantiate(withOwner: nil, options: nil)[0] as! WBRefreshView
     }
+    
+    override func awakeFromNib() {
+        indicator.isHidden = true
+        
+        super.awakeFromNib()
+    }
 }
