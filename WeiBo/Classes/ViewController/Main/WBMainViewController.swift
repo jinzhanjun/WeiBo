@@ -74,7 +74,20 @@ class WBMainViewController: UITabBarController {
     /// 撰写微博页面
     @objc private func compose() {
         let v = WBComposeView.composeTypeView()
-        v.show()
+        v.show() { [weak v] clsName in
+            
+            guard let cls = clsName,
+                // 根据clsName 创建控制器
+                let vcClass = NSClassFromString(Bundle.nameSpace + cls) as? WBComposeController.Type
+                else { return }
+            
+            let vc = vcClass.init()
+            let nav = UINavigationController(rootViewController: vc)
+            
+            self.present(nav, animated: true) {
+                v?.removeFromSuperview()
+            }
+        }
     }
     
     /// 设置时钟

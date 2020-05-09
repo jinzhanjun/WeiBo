@@ -16,6 +16,8 @@
 		7B2B0C59244EFB1F006438FC /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C58244EFB1F006438FC /* WBUser.swift */; };
 		7B2B0C60244F0D86006438FC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C5F244F0D86006438FC /* UIImage+Extension.swift */; };
 		7B2B0C64244F3515006438FC /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B0C63244F3515006438FC /* WBStatusToolBar.swift */; };
+		7B3872A12464F03E000F5B85 /* WBComposeTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B3872A02464F03E000F5B85 /* WBComposeTypeView.xib */; };
+		7B3872A32464F1F8000F5B85 /* WBComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3872A22464F1F8000F5B85 /* WBComposeTypeView.swift */; };
 		7B3D208D2447FA4F00851C16 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */; };
 		7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A42437888E00F22453 /* AppDelegate.swift */; };
 		7B5257A72437888E00F22453 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5257A62437888E00F22453 /* SceneDelegate.swift */; };
@@ -61,6 +63,7 @@
 		7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */; };
 		7BEC95AD243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */; };
 		7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC95AE243C79CF00C7036E /* StatusModel.swift */; };
+		7BF73DA0246678A1004BBC00 /* WBComposeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF73D9F246678A1004BBC00 /* WBComposeController.swift */; };
 		7BFDAA922455D8EA0066CD3C /* PictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA912455D8EA0066CD3C /* PictureModel.swift */; };
 		7BFDAA942455DB550066CD3C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */; };
 		7BFFB17F246289ED0003F897 /* WBMeiTuanRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFB17E246289EC0003F897 /* WBMeiTuanRefreshView.xib */; };
@@ -94,6 +97,8 @@
 		7B2B0C58244EFB1F006438FC /* WBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
 		7B2B0C5F244F0D86006438FC /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7B2B0C63244F3515006438FC /* WBStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusToolBar.swift; sourceTree = "<group>"; };
+		7B3872A02464F03E000F5B85 /* WBComposeTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeTypeView.xib; sourceTree = "<group>"; };
+		7B3872A22464F1F8000F5B85 /* WBComposeTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeTypeView.swift; sourceTree = "<group>"; };
 		7B3D208C2447FA4F00851C16 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
 		7B5257A12437888E00F22453 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5257A42437888E00F22453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +159,7 @@
 		7BEC95AA243C5EB500C7036E /* WBNetWorkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkingController.swift; sourceTree = "<group>"; };
 		7BEC95AC243C6C2E00C7036E /* WBNetWorkingController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkingController + Extensions.swift"; sourceTree = "<group>"; };
 		7BEC95AE243C79CF00C7036E /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		7BF73D9F246678A1004BBC00 /* WBComposeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeController.swift; sourceTree = "<group>"; };
 		7BFDAA912455D8EA0066CD3C /* PictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureModel.swift; sourceTree = "<group>"; };
 		7BFDAA932455DB550066CD3C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		7BFFB17E246289EC0003F897 /* WBMeiTuanRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBMeiTuanRefreshView.xib; sourceTree = "<group>"; };
@@ -320,6 +326,7 @@
 				7BF2ED2C244C457F00643E34 /* NewFeature */,
 				7B5DDAF4243B7F830067BA7C /* mian.json */,
 				7BC1681E24646FE5009E29F2 /* ComposeTypeView */,
+				7BF73D9F246678A1004BBC00 /* WBComposeController.swift */,
 				7B5257C224378D6600F22453 /* WBMainViewController.swift */,
 				7B5257C424378D9000F22453 /* WBNavController.swift */,
 				7B5257C624378DA600F22453 /* WBBaseViewController.swift */,
@@ -391,6 +398,8 @@
 			children = (
 				7BC1681F24647011009E29F2 /* WBComposeView.swift */,
 				7BC1682124647138009E29F2 /* WBComposeView.xib */,
+				7B3872A02464F03E000F5B85 /* WBComposeTypeView.xib */,
+				7B3872A22464F1F8000F5B85 /* WBComposeTypeView.swift */,
 			);
 			name = ComposeTypeView;
 			path = WeiBo/Classes/ViewController/Main/ComposeTypeView;
@@ -502,6 +511,7 @@
 				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
 				7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */,
 				7BC1682224647138009E29F2 /* WBComposeView.xib in Resources */,
+				7B3872A12464F03E000F5B85 /* WBComposeTypeView.xib in Resources */,
 				7B8C77662460898D003DDF35 /* WBRefreshView.xib in Resources */,
 				7B5257AE2437889100F22453 /* Assets.xcassets in Resources */,
 				7B5DDAF5243B7F830067BA7C /* mian.json in Resources */,
@@ -569,8 +579,10 @@
 				7B8C77652460898D003DDF35 /* WBRefreshView.swift in Sources */,
 				7B52581C2438331C00F22453 /* NSAttributedString+CZAdditon.m in Sources */,
 				7B5257CB24378DE500F22453 /* WBDiscoverViewController.swift in Sources */,
+				7BF73DA0246678A1004BBC00 /* WBComposeController.swift in Sources */,
 				7B5258232438525D00F22453 /* UIBarButtonItem+Extension.swift in Sources */,
 				7B5258152438331C00F22453 /* UILabel+CZAddition.m in Sources */,
+				7B3872A32464F1F8000F5B85 /* WBComposeTypeView.swift in Sources */,
 				7B2B0C55244EE626006438FC /* WBStatusView.swift in Sources */,
 				7BEC95AB243C5EB500C7036E /* WBNetWorkingController.swift in Sources */,
 				7B2B0C57244EEF2F006438FC /* WBStatusViewModel.swift in Sources */,

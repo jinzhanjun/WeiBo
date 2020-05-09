@@ -26,9 +26,9 @@
                                     <constraint firstAttribute="width" constant="154" id="SJJ-IU-lhR"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-I1-ReS">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-I1-ReS">
                                 <rect key="frame" x="0.0" y="371" width="414" height="318"/>
-                                <color key="backgroundColor" red="1" green="0.42352941179999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="Y9a-AS-1Wu"/>
                                 </constraints>
@@ -45,12 +45,21 @@
                                             <action selector="backButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="yxu-gW-INJ"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aj-fB-miy">
+                                        <rect key="frame" x="194.5" y="9.5" width="25" height="25"/>
+                                        <state key="normal" image="tabbar_compose_background_icon_return"/>
+                                        <connections>
+                                            <action selector="backBtnPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="336-xh-8ij"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Fz1-mp-gXo" firstAttribute="centerY" secondItem="jZe-mC-TxE" secondAttribute="centerY" id="O6m-WF-uUS"/>
-                                    <constraint firstItem="Fz1-mp-gXo" firstAttribute="centerX" secondItem="jZe-mC-TxE" secondAttribute="centerX" id="jTc-3L-WaM"/>
+                                    <constraint firstItem="Fz1-mp-gXo" firstAttribute="centerX" secondItem="jZe-mC-TxE" secondAttribute="centerX" id="Vi4-8Z-Xbd"/>
+                                    <constraint firstItem="7aj-fB-miy" firstAttribute="centerY" secondItem="jZe-mC-TxE" secondAttribute="centerY" id="ecO-jd-nbT"/>
                                     <constraint firstAttribute="height" constant="44" id="oNc-s7-efm"/>
+                                    <constraint firstItem="7aj-fB-miy" firstAttribute="centerX" secondItem="jZe-mC-TxE" secondAttribute="centerX" id="y05-K1-jpB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -65,7 +74,7 @@
                             <constraint firstItem="Leq-I1-ReS" firstAttribute="leading" secondItem="06v-Vk-MPA" secondAttribute="leading" id="x76-GY-fJH"/>
                         </constraints>
                     </view>
-                    <blurEffect style="regular"/>
+                    <blurEffect style="extraLight"/>
                 </visualEffectView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,11 +86,18 @@
                 <constraint firstItem="jZe-mC-TxE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="rAc-8s-MMB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backButton" destination="7aj-fB-miy" id="ato-bO-9EG"/>
+                <outlet property="backButtonCenterX" destination="y05-K1-jpB" id="Igk-Sn-HfU"/>
+                <outlet property="buttonCenterX" destination="Vi4-8Z-Xbd" id="qdb-mX-sMK"/>
+                <outlet property="scrollView" destination="Leq-I1-ReS" id="kvi-q1-leX"/>
+            </connections>
             <point key="canvasLocation" x="-930" y="-413"/>
         </view>
     </objects>
     <resources>
         <image name="compose_slogan" width="154" height="48"/>
         <image name="tabbar_compose_background_icon_close" width="25" height="25"/>
+        <image name="tabbar_compose_background_icon_return" width="25" height="25"/>
     </resources>
 </document>
