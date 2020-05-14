@@ -20,6 +20,9 @@ class WBStatusViewModel {
     /// 昵称标签
     var nameLabel: UILabel?
     
+    /// 微博来源
+    var source: (link: String, sourceName: String)?
+    
     /// 配图的urls
     var pic_urls: [PictureModel]? {
         
@@ -61,6 +64,24 @@ class WBStatusViewModel {
         reposts_count = model.reposts_count
         comments_count = model.comments_count
         attitudes_count = model.attitudes_count
+        
+        source = rgxStatusSource(with: model.source)
+    }
+    
+    /// 从微博来源字符中，过滤需要显示的字符
+    private func rgxStatusSource(with str: String?) -> (String, String)? {
+        
+        let pattern = "<a href=\"(.*?)\".*?>(.*?)</a>"
+        
+        guard let rgx = try? NSRegularExpression(pattern: pattern, options: []),
+            let str = str,
+        let result = rgx.firstMatch(in: str, options: [], range: NSRange(location: 0, length: str.count)),
+        let link = str.subString(range: result.range(at: 1)),
+        let source = str.subString(range: result.range(at: 2))
+            else {
+                return nil
+        }
+        return (link, "来源于： \(source)")
     }
     
     /// 计算行高

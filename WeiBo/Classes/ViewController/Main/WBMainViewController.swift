@@ -79,7 +79,10 @@ class WBMainViewController: UITabBarController {
             guard let cls = clsName,
                 // 根据clsName 创建控制器
                 let vcClass = NSClassFromString(Bundle.nameSpace + cls) as? WBComposeController.Type
-                else { return }
+                else {
+                    v?.removeFromSuperview()
+                    return
+            }
             
             let vc = vcClass.init()
             let nav = UINavigationController(rootViewController: vc)

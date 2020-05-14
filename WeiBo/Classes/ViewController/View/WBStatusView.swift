@@ -32,6 +32,9 @@ class WBStatusView: UITableViewCell {
             // 设置VIP图标
             vipImageView.image = model.memberIcon
             
+            // 微博来源
+            sourceLabel.text = model.source?.sourceName
+            
             // 设置微博内容
             statusLabel.text = model.statusModel.text
             
