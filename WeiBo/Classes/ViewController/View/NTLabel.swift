@@ -28,10 +28,16 @@ class NTLabel: UILabel {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        textContainer?.size = bounds.size
+    }
+    
     /// 在此接管(重写原draw的方法，但是不实现父类方法)
     override func drawText(in rect: CGRect) {
         /// 绘制 富文本
-        textStorage?.draw(with: bounds, options: [.usesLineFragmentOrigin], context: nil)
+        textLayoutManager?.drawGlyphs(forGlyphRange: NSRange(location: 0, length: attributedText?.length ?? 0), at: CGPoint.zero)
     }
     
     /// 更新 属性文本
@@ -88,8 +94,6 @@ class NTLabel: UILabel {
     var textLayoutManager: NSLayoutManager?
     /// 文本绘制区域管理器
     var textContainer: NSTextContainer?
-    /// 过滤出来的表情 Range
-//    lazy var emojiRanges: [NSRange]? = [NSRange]()
     /// 过滤出来的 url Range
     lazy var urlRanges: [NSRange]? = [NSRange]()
     
@@ -104,12 +108,12 @@ class NTLabel: UILabel {
         textLayoutManager = NSLayoutManager()
         // 实例化 text 绘制区域
         textContainer = NSTextContainer()
-        
         // 关联 text 管理器
         textStorage?.addLayoutManager(textLayoutManager!)
         textLayoutManager?.addTextContainer(textContainer!)
         
-//        textLayoutManager?.delegate
+//        textContainer?.lineBreakMode = .byWordWrapping
+        textContainer?.lineFragmentPadding = 0
     }
     
     /// 正则表达式，过滤表情文字，并且返回表情符号
@@ -164,8 +168,7 @@ class NTLabel: UILabel {
     /// Label 的点击事件
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /// 确保存在textLayoutManager
-        guard let textLayoutManager = self.textLayoutManager,
-            let textStorage = self.textStorage
+        guard let textLayoutManager = self.textLayoutManager
             else { return }
         
         // 确定是否点击了，url所在区域
@@ -189,8 +192,8 @@ class NTLabel: UILabel {
                     
                     print(r)
                     if r.contains(characterIndex) {
-                        let urlStr = attributedText?.subString(in: r)
-                        print("点击了url: \(urlStr)")
+//                        let urlStr = attributedText?.subString(in: r)
+//                        print("点击了url: \(urlStr)")
                     } else {
                         print("点击了字符")
                     }

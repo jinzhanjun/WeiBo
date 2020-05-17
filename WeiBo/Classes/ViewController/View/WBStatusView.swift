@@ -36,13 +36,15 @@ class WBStatusView: UITableViewCell {
             sourceLabel.text = model.source?.sourceName
             
             // 设置微博内容
-            statusLabel.text = model.statusModel.text
+            statusLabel.attributedText = model.statusAttriText
             
             // 设置转发微博内容
             if viewModel?.statusModel.retweeted_status != nil {
-                let retWeetedStatus = viewModel!.statusModel.retweeted_status
+//                let retWeetedStatus = viewModel!.statusModel.retweeted_status
+////
+//                let retWeetedStatusText = "@\(retWeetedStatus!.user?.screen_name ?? ""): " + (retWeetedStatus?.text ?? "")
                 
-                retweetStatusLabel?.text = "@\(retWeetedStatus!.user?.screen_name ?? ""): " + (retWeetedStatus?.text ?? "")
+                retweetStatusLabel?.attributedText = model.retweeted_statusAttriText
             }
             
             // 根据配图数量确定配图视图高度
@@ -68,10 +70,10 @@ class WBStatusView: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     
     /// 微博内容
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusLabel: NTLabel!
     
     /// 转发微博内容
-    @IBOutlet weak var retweetStatusLabel: UILabel?
+    @IBOutlet weak var retweetStatusLabel: NTLabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()

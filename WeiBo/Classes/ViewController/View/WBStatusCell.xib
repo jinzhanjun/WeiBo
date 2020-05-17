@@ -115,7 +115,7 @@
                             <outlet property="retweetButton" destination="EtK-P0-n1J" id="s5s-ee-QpB"/>
                         </connections>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-NF-5xO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-NF-5xO" customClass="FFLabel" customModule="WeiBo" customModuleProvider="target">
                         <rect key="frame" x="12" y="70" width="37.5" height="249"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +159,7 @@
                 <outlet property="timeLabel" destination="YRU-mT-naM" id="PTE-Jy-Zpq"/>
                 <outlet property="vipImageView" destination="ieh-W3-Due" id="OfC-fR-mgy"/>
             </connections>
-            <point key="canvasLocation" x="-4438" y="-417"/>
+            <point key="canvasLocation" x="-3707" y="-455"/>
         </tableViewCell>
     </objects>
     <resources>

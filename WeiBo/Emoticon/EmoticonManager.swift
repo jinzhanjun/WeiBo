@@ -22,7 +22,7 @@ class EmoticonManager {
     }
     
     /// 正则表达式，过滤表情文字，并且返回表情符号
-    func getEmojiText(with str: String?) -> NSAttributedString? {
+    func getEmojiText(with str: String?, for statusFont: UIFont) -> NSAttributedString? {
         
         guard let str = str else { return nil}
         
@@ -49,15 +49,13 @@ class EmoticonManager {
             
             let attachment = NSTextAttachment(image: image)
             
-            let font = UIFont.systemFont(ofSize: 15)
-            
-            attachment.bounds = CGRect(x: 0, y: -4, width: font.lineHeight, height: font.lineHeight)
+            attachment.bounds = CGRect(x: 0, y: -4, width: statusFont.lineHeight, height: statusFont.lineHeight)
             let attrStr = NSAttributedString(attachment: attachment)
             
             mutableAttriStr.replaceCharacters(in: r.range(at: 0), with: attrStr)
         }
         
-        mutableAttriStr.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], range: NSRange(location: 0, length: mutableAttriStr.length))
+        mutableAttriStr.addAttributes([NSAttributedString.Key.font: statusFont], range: NSRange(location: 0, length: mutableAttriStr.length))
         
         return mutableAttriStr
     }

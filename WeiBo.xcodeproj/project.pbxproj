@@ -61,6 +61,8 @@
 		7BA2D434246D482D00D7F357 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2D430246D482D00D7F357 /* EmoticonManager.swift */; };
 		7BA2D435246D482D00D7F357 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BA2D431246D482D00D7F357 /* HMEmoticon.bundle */; };
 		7BA2D436246D482D00D7F357 /* EmojiListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2D432246D482D00D7F357 /* EmojiListModel.swift */; };
+		7BA2D438246D610600D7F357 /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2D437246D610600D7F357 /* FFLabel.swift */; };
+		7BAB3CFC246EDF0B007257FA /* WBComposeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BAB3CFB246EDF0B007257FA /* WBComposeController.xib */; };
 		7BC1682024647011009E29F2 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC1681F24647011009E29F2 /* WBComposeView.swift */; };
 		7BC1682224647138009E29F2 /* WBComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC1682124647138009E29F2 /* WBComposeView.xib */; };
 		7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44C42244BF455007F035B /* WBNewVersionView.swift */; };
@@ -164,6 +166,8 @@
 		7BA2D430246D482D00D7F357 /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
 		7BA2D431246D482D00D7F357 /* HMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMEmoticon.bundle; sourceTree = "<group>"; };
 		7BA2D432246D482D00D7F357 /* EmojiListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiListModel.swift; sourceTree = "<group>"; };
+		7BA2D437246D610600D7F357 /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFLabel.swift; sourceTree = "<group>"; };
+		7BAB3CFB246EDF0B007257FA /* WBComposeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeController.xib; sourceTree = "<group>"; };
 		7BC1681F24647011009E29F2 /* WBComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeView.swift; sourceTree = "<group>"; };
 		7BC1682124647138009E29F2 /* WBComposeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeView.xib; sourceTree = "<group>"; };
 		7BE44C42244BF455007F035B /* WBNewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewVersionView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		7B2B0C51244EE4DB006438FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BA2D437246D610600D7F357 /* FFLabel.swift */,
 				7BA2D42C246D481400D7F357 /* NTLabel.swift */,
 				7B2B0C52244EE50A006438FC /* WBStatusCell.xib */,
 				7B9487752456CB9400721A96 /* WBRetweetedStatusCell.xib */,
@@ -342,6 +347,7 @@
 				7B5DDAF4243B7F830067BA7C /* mian.json */,
 				7BC1681E24646FE5009E29F2 /* ComposeTypeView */,
 				7BF73D9F246678A1004BBC00 /* WBComposeController.swift */,
+				7BAB3CFB246EDF0B007257FA /* WBComposeController.xib */,
 				7B5257C224378D6600F22453 /* WBMainViewController.swift */,
 				7B5257C424378D9000F22453 /* WBNavController.swift */,
 				7B5257C624378DA600F22453 /* WBBaseViewController.swift */,
@@ -533,6 +539,7 @@
 				7BFFB17F246289ED0003F897 /* WBMeiTuanRefreshView.xib in Resources */,
 				7B2B0C53244EE50A006438FC /* WBStatusCell.xib in Resources */,
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
+				7BAB3CFC246EDF0B007257FA /* WBComposeController.xib in Resources */,
 				7B9487762456CB9400721A96 /* WBRetweetedStatusCell.xib in Resources */,
 				7BA2D435246D482D00D7F357 /* HMEmoticon.bundle in Resources */,
 				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
@@ -647,6 +654,7 @@
 				7B5257C324378D6600F22453 /* WBMainViewController.swift in Sources */,
 				7B5258142438331C00F22453 /* UIScreen+CZAddition.m in Sources */,
 				7B5257C724378DA600F22453 /* WBBaseViewController.swift in Sources */,
+				7BA2D438246D610600D7F357 /* FFLabel.swift in Sources */,
 				7B2B0C64244F3515006438FC /* WBStatusToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,10 @@ class WBMainViewController: UITabBarController {
     // 登录界面
     lazy var loginViewController = WBLoginViewController()
     
+    /// 撰写微博按钮
+    private lazy var composeBtn: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    
+    
     // 时钟
     var timer: Timer?
 
@@ -25,10 +29,8 @@ class WBMainViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 添加撰写按钮
+        // 添加撰写微博按钮
         addComposeBtn()
-        
-        print("MainViewController 即将显示")
     }
     
     deinit {
@@ -61,7 +63,6 @@ class WBMainViewController: UITabBarController {
     @objc private func showLoginView() {
         
         let nav = UINavigationController(rootViewController: loginViewController)
-        
         present(nav, animated: true, completion: nil)
     }
     
@@ -86,7 +87,8 @@ class WBMainViewController: UITabBarController {
             
             let vc = vcClass.init()
             let nav = UINavigationController(rootViewController: vc)
-            
+            // 设置展现方式为全屏，默认是漏出后面控制器的顶部
+            nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true) {
                 v?.removeFromSuperview()
             }
@@ -190,16 +192,14 @@ extension WBMainViewController: UITabBarControllerDelegate {
 
 /// 设置子控制器
 extension WBMainViewController {
-    
+    /// 添加微博撰写按钮
     private func addComposeBtn() {
-        let width = tabBar.bounds.width / CGFloat(children.count)
-        
-        let composeBtn: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
-        composeBtn.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
-        
-        tabBar.addSubview(composeBtn)
-        
-        composeBtn.addTarget(self, action: #selector(compose), for: .touchUpInside)
+        if !tabBar.subviews.contains(composeBtn) {
+            tabBar.addSubview(composeBtn)
+            let width = tabBar.bounds.width / CGFloat(children.count)
+            composeBtn.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
+            composeBtn.addTarget(self, action: #selector(compose), for: .touchUpInside)
+        }
     }
     
     

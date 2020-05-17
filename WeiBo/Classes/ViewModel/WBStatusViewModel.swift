@@ -10,7 +10,10 @@ import Foundation
 import SDWebImage
 
 class WBStatusViewModel {
-    
+    /// 微博正文属性文本
+    var statusAttriText: NSAttributedString?
+    /// 微博转发属性文本
+    var retweeted_statusAttriText: NSAttributedString?
     /// 模型
     var statusModel: StatusModel
     /// 头像
@@ -56,7 +59,7 @@ class WBStatusViewModel {
         // 如果0 张图片，就返回CGSize(0, 0)
         picViewSize = picViewSizeCalculator(with: pic_urls?.count ?? 0)
         
-        cellHeightCalculate()
+        
         
         print("picViewSize: \(picViewSize)")
         
@@ -66,6 +69,17 @@ class WBStatusViewModel {
         attitudes_count = model.attitudes_count
         
         source = rgxStatusSource(with: model.source)
+        
+        statusAttriText = EmoticonManager.shared.getEmojiText(with: model.text, for: statusFont)
+        
+        var text = "@" + (statusModel.user?.screen_name ?? "")
+            + ": "
+        text += (statusModel.retweeted_status?.text ?? "")
+        
+        retweeted_statusAttriText = EmoticonManager.shared.getEmojiText(with: text, for: retweeted_status_Font)
+        
+        /// 计算行高
+        cellHeightCalculate()
     }
     
     /// 从微博来源字符中，过滤需要显示的字符
@@ -99,24 +113,25 @@ class WBStatusViewModel {
         height += margin
         
         // 计算文本高度
-        height += ((statusModel.text ?? "") as NSString).boundingRect(
+        height += statusAttriText?.boundingRect(
             with: CGSize(width: UIScreen.cz_screenWidth() - 2 * PictureViewOutMargin,height: CGFloat(MAXFLOAT)),
             options: [.usesLineFragmentOrigin],
-            attributes: [.font: UIFont.systemFont(ofSize: 15)],
-            context: nil).height
+            context: nil).height ?? 0
         
         if statusModel.retweeted_status != nil {
             height += 12
             
             height += 12
             
-            let text = (statusModel.retweeted_status?.text ?? "") + "@：" + (statusModel.user?.screen_name ?? "")
+//            let text = (statusModel.retweeted_status?.text ?? "") + "@：" + (statusModel.user?.screen_name ?? "")
+//
+//            print(retweeted_statusAttriText)
+//            
             
-            height += (text as NSString).boundingRect(
+            height += retweeted_statusAttriText?.boundingRect(
                 with: CGSize(width: UIScreen.cz_screenWidth() - 2 * PictureViewOutMargin, height: CGFloat(MAXFLOAT)),
                 options: [.usesLineFragmentOrigin],
-                attributes: [.font: UIFont.systemFont(ofSize: 14)],
-                context: nil).height
+                context: nil).height ?? 0
         }
         
         height += picViewSize.height
@@ -124,6 +139,8 @@ class WBStatusViewModel {
         height += PictureViewInnerMargin
         
         height += 35
+        
+        height += 20
         
         cellHeight = height
     }
