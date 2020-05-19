@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="YJj-pR-dez" customClass="NTEmojiInputView" customModule="emojiInput" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hq-ck-wfc" customClass="NTEmoticonPackageBar" customModule="emojiInput" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="336" width="414" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="xQ0-Mb-ofu"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bJR-pE-jbQ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="336"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MJt-QE-RnY">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="tpd-Sh-XRU" firstAttribute="trailing" secondItem="bJR-pE-jbQ" secondAttribute="trailing" id="AXd-He-HE4"/>
+                <constraint firstItem="tpd-Sh-XRU" firstAttribute="trailing" secondItem="1Hq-ck-wfc" secondAttribute="trailing" id="KMI-us-5z1"/>
+                <constraint firstItem="1Hq-ck-wfc" firstAttribute="leading" secondItem="tpd-Sh-XRU" secondAttribute="leading" id="NIS-kf-EO9"/>
+                <constraint firstItem="bJR-pE-jbQ" firstAttribute="leading" secondItem="tpd-Sh-XRU" secondAttribute="leading" id="RAi-20-gM2"/>
+                <constraint firstItem="1Hq-ck-wfc" firstAttribute="bottom" secondItem="tpd-Sh-XRU" secondAttribute="bottom" id="T2g-bS-tq5"/>
+                <constraint firstItem="1Hq-ck-wfc" firstAttribute="top" secondItem="bJR-pE-jbQ" secondAttribute="bottom" id="VMZ-4q-Is0"/>
+                <constraint firstItem="bJR-pE-jbQ" firstAttribute="top" secondItem="YJj-pR-dez" secondAttribute="top" id="qhb-h5-1XX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="tpd-Sh-XRU"/>
+            <connections>
+                <outlet property="emoticonCollectionView" destination="bJR-pE-jbQ" id="Y2e-Gx-Cyj"/>
+                <outlet property="toolBar" destination="1Hq-ck-wfc" id="xLp-iS-bGm"/>
+            </connections>
+            <point key="canvasLocation" x="-209" y="-350"/>
+        </view>
+    </objects>
+</document>

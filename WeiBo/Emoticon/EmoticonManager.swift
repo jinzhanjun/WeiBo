@@ -68,6 +68,16 @@ class EmoticonManager {
             let array = NSArray(contentsOfFile: dict) as? [[String: String]],
             let modelArray = NSArray.yy_modelArray(with: EmojiListModel.self, json: array) as? [EmojiListModel]
             else { return }
+        
+        // 遍历数组
+        for model in modelArray {
+            // 遍历模型数组，设置模型包 名称
+            for emoji in model.emojiModelArray {
+                emoji.packageName = model.directory
+            }
+        }
+        
+        
         emojiListModel += modelArray
     }
     

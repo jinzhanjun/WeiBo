@@ -9,6 +9,10 @@
 import UIKit
 
 class WBComposeController: UIViewController, UITextViewDelegate {
+    
+    /// textView占位标签
+    @IBOutlet weak var placeHolderLabel: UILabel!
+    
     /// 导航标题标签
     @IBOutlet var navTitleLabel: UILabel!
     /// 文本视图
@@ -69,6 +73,47 @@ class WBComposeController: UIViewController, UITextViewDelegate {
             selector: #selector(keyBoardWillChange(n:)),
             name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil)
+        
+        
+        
+        
+        
+        let v = NTEmojiInputView.inputView { [weak self] (emojiModel) in
+            
+            if let emojiModel = emojiModel {
+                
+                // 插入表情
+                guard let textView = self?.textView,
+                    let attriString = textView.attributedText,
+                    let font = textView.font,
+                    let image = emojiModel.image
+                    else { return }
+                
+                // 记录光标位置
+                let selectedRange = NSRange(location: textView.selectedRange.location + 1, length: 0)  // textView.selectedRange
+                
+                let attachment = NSTextAttachment(data: nil, ofType: nil)
+                attachment.image = image
+                
+                let emojiAttriStr = NSMutableAttributedString(attachment: attachment)
+                emojiAttriStr.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: 1))
+                attachment.bounds = CGRect(x: 0, y: -4, width: font.lineHeight - 4, height: font.lineHeight - 4)
+                let mutableAttriStr = NSMutableAttributedString(attributedString: attriString)
+                
+                mutableAttriStr.replaceCharacters(in: textView.selectedRange, with: emojiAttriStr)
+                
+                textView.attributedText = mutableAttriStr
+                
+                // 恢复光标位置
+                textView.selectedRange = selectedRange
+            } else {
+                self?.textView.deleteBackward()
+            }
+        }
+        
+        // 如果 inputView != nil 那么就不显示系统键盘
+        textView.inputView = v
+                
     }
     
     /// 销毁
@@ -117,5 +162,6 @@ class WBComposeController: UIViewController, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         sendBarButtonItem.isEnabled = textView.hasText
+        placeHolderLabel.isHidden = textView.hasText
     }
 }

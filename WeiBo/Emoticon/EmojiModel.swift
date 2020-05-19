@@ -20,6 +20,24 @@ class EmojiModel: NSObject {
     @objc var png: String?
     /// 类型
     @objc var type: String?
+    /// 表情字符
+    @objc var code: String? {
+        didSet {
+            guard let code = code else { return }
+            // 字符串转16进制
+            let scanner = Scanner(string: code)
+            
+            var result: UInt32 = 0
+            scanner.scanHexInt32(&result)
+            
+            codeEmoji = String(Character(UnicodeScalar(result)!))
+        }
+    }
+    
+    var codeEmoji: String?
+    
+    /// 表情包名称
+    var packageName: String?
     
     override var description: String {
         return yy_modelDescription()

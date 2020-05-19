@@ -51,6 +51,11 @@
 		7B5D18B3244B4DBC00EE7CF8 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */; };
 		7B5D18B5244B4E0C00EE7CF8 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */; };
 		7B5DDAF5243B7F830067BA7C /* mian.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B5DDAF4243B7F830067BA7C /* mian.json */; };
+		7B8433BE247446C300D8CC6C /* NTEmojiInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8433B9247446C300D8CC6C /* NTEmojiInputView.xib */; };
+		7B8433BF247446C300D8CC6C /* NTEmojiCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8433BA247446C300D8CC6C /* NTEmojiCollectionCell.swift */; };
+		7B8433C0247446C300D8CC6C /* EmoticonCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8433BB247446C300D8CC6C /* EmoticonCollectionViewLayout.swift */; };
+		7B8433C1247446C300D8CC6C /* NTEmojiInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8433BC247446C300D8CC6C /* NTEmojiInputView.swift */; };
+		7B8433C2247446C300D8CC6C /* NTEmoticonPackageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8433BD247446C300D8CC6C /* NTEmoticonPackageBar.swift */; };
 		7B8C773924605468003DDF35 /* WBRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C773824605468003DDF35 /* WBRefreshController.swift */; };
 		7B8C77652460898D003DDF35 /* WBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C77632460898D003DDF35 /* WBRefreshView.swift */; };
 		7B8C77662460898D003DDF35 /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C77642460898D003DDF35 /* WBRefreshView.xib */; };
@@ -156,6 +161,11 @@
 		7B5D18B2244B4DBC00EE7CF8 /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		7B5D18B4244B4E0C00EE7CF8 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		7B5DDAF4243B7F830067BA7C /* mian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mian.json; sourceTree = "<group>"; };
+		7B8433B9247446C300D8CC6C /* NTEmojiInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTEmojiInputView.xib; sourceTree = "<group>"; };
+		7B8433BA247446C300D8CC6C /* NTEmojiCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTEmojiCollectionCell.swift; sourceTree = "<group>"; };
+		7B8433BB247446C300D8CC6C /* EmoticonCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewLayout.swift; sourceTree = "<group>"; };
+		7B8433BC247446C300D8CC6C /* NTEmojiInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTEmojiInputView.swift; sourceTree = "<group>"; };
+		7B8433BD247446C300D8CC6C /* NTEmoticonPackageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTEmoticonPackageBar.swift; sourceTree = "<group>"; };
 		7B8C773824605468003DDF35 /* WBRefreshController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshController.swift; sourceTree = "<group>"; };
 		7B8C77632460898D003DDF35 /* WBRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshView.swift; sourceTree = "<group>"; };
 		7B8C77642460898D003DDF35 /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
@@ -402,6 +412,18 @@
 			path = WeiBo/Classes/Tools/Extensions;
 			sourceTree = SOURCE_ROOT;
 		};
+		7B8433B8247446C300D8CC6C /* EmoticonInputView */ = {
+			isa = PBXGroup;
+			children = (
+				7B8433B9247446C300D8CC6C /* NTEmojiInputView.xib */,
+				7B8433BA247446C300D8CC6C /* NTEmojiCollectionCell.swift */,
+				7B8433BB247446C300D8CC6C /* EmoticonCollectionViewLayout.swift */,
+				7B8433BC247446C300D8CC6C /* NTEmojiInputView.swift */,
+				7B8433BD247446C300D8CC6C /* NTEmoticonPackageBar.swift */,
+			);
+			path = EmoticonInputView;
+			sourceTree = "<group>";
+		};
 		7B8C77372460543F003DDF35 /* RefreshController */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +439,7 @@
 		7BA2D42E246D482D00D7F357 /* Emoticon */ = {
 			isa = PBXGroup;
 			children = (
+				7B8433B8247446C300D8CC6C /* EmoticonInputView */,
 				7BA2D42F246D482D00D7F357 /* EmojiModel.swift */,
 				7BA2D430246D482D00D7F357 /* EmoticonManager.swift */,
 				7BA2D431246D482D00D7F357 /* HMEmoticon.bundle */,
@@ -540,6 +563,7 @@
 				7B2B0C53244EE50A006438FC /* WBStatusCell.xib in Resources */,
 				7B5257F524379B1700F22453 /* Launch Screen.storyboard in Resources */,
 				7BAB3CFC246EDF0B007257FA /* WBComposeController.xib in Resources */,
+				7B8433BE247446C300D8CC6C /* NTEmojiInputView.xib in Resources */,
 				7B9487762456CB9400721A96 /* WBRetweetedStatusCell.xib in Resources */,
 				7BA2D435246D482D00D7F357 /* HMEmoticon.bundle in Resources */,
 				7BE44C45244BF474007F035B /* WBNewVersionView.xib in Resources */,
@@ -602,8 +626,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BFDAA942455DB550066CD3C /* WBStatusPictureView.swift in Sources */,
+				7B8433C0247446C300D8CC6C /* EmoticonCollectionViewLayout.swift in Sources */,
 				7B5D18B1244B368200EE7CF8 /* WBNavButton.swift in Sources */,
 				7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */,
+				7B8433C1247446C300D8CC6C /* NTEmojiInputView.swift in Sources */,
 				7B5257A52437888E00F22453 /* AppDelegate.swift in Sources */,
 				7B2AF9E5243C8DFF003F71A6 /* WBStatusListViewModel.swift in Sources */,
 				7B525820243841B300F22453 /* WBDemoViewController.swift in Sources */,
@@ -625,6 +651,7 @@
 				7B5258132438331C00F22453 /* UIView+CZAddition.m in Sources */,
 				7B5258252438A6B000F22453 /* WBNavBar.swift in Sources */,
 				7B00CB4E2446AC9200FF2888 /* WBCommon.swift in Sources */,
+				7B8433BF247446C300D8CC6C /* NTEmojiCollectionCell.swift in Sources */,
 				7B5258192438331C00F22453 /* NSObject+CZRuntime.m in Sources */,
 				7B5257A72437888E00F22453 /* SceneDelegate.swift in Sources */,
 				7BA2D42D246D481400D7F357 /* NTLabel.swift in Sources */,
@@ -640,6 +667,7 @@
 				7B5258172438331C00F22453 /* NSString+CZPath.m in Sources */,
 				7B52581B2438331C00F22453 /* NSString+CZHash.m in Sources */,
 				7B2B0C60244F0D86006438FC /* UIImage+Extension.swift in Sources */,
+				7B8433C2247446C300D8CC6C /* NTEmoticonPackageBar.swift in Sources */,
 				7B2B0C59244EFB1F006438FC /* WBUser.swift in Sources */,
 				7BA2D436246D482D00D7F357 /* EmojiListModel.swift in Sources */,
 				7BEC95AF243C79CF00C7036E /* StatusModel.swift in Sources */,

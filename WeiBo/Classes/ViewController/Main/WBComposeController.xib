@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WBComposeController" customModule="WeiBo" customModuleProvider="target">
             <connections>
                 <outlet property="navTitleLabel" destination="SZt-1T-SZp" id="Xki-2O-2Oc"/>
+                <outlet property="placeHolderLabel" destination="qRf-MB-sMi" id="eop-fv-8QL"/>
                 <outlet property="textView" destination="A9C-jO-5jU" id="FfP-eA-apr"/>
                 <outlet property="toolBarBottomHeight" destination="AfE-nt-Ir5" id="TNn-zS-F2e"/>
                 <outlet property="view" destination="MpF-ia-iu2" id="bKC-7k-3wF"/>
@@ -33,6 +34,12 @@
                         <barButtonItem title="Item" image="compose_mentionbutton_background" landscapeImage="compose_mentionbutton_background_highlighted" id="3vR-OY-G5M"/>
                     </items>
                 </toolbar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="撰写微博..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRf-MB-sMi">
+                    <rect key="frame" x="5" y="52" width="89" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.95294117649999999" green="0.24313725489999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -43,9 +50,11 @@
                 <constraint firstItem="G11-bB-t6d" firstAttribute="leading" secondItem="XQ1-Ju-HQF" secondAttribute="leading" id="aWo-8B-0oY"/>
                 <constraint firstItem="A9C-jO-5jU" firstAttribute="top" secondItem="XQ1-Ju-HQF" secondAttribute="top" id="f4P-5k-XmH"/>
                 <constraint firstItem="A9C-jO-5jU" firstAttribute="leading" secondItem="XQ1-Ju-HQF" secondAttribute="leading" id="qeU-ou-czT"/>
+                <constraint firstItem="qRf-MB-sMi" firstAttribute="leading" secondItem="XQ1-Ju-HQF" secondAttribute="leading" constant="5" id="qzm-Nr-3O4"/>
+                <constraint firstItem="qRf-MB-sMi" firstAttribute="top" secondItem="XQ1-Ju-HQF" secondAttribute="top" constant="8" id="t6I-V9-PMc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="XQ1-Ju-HQF"/>
-            <point key="canvasLocation" x="-2262" y="-278"/>
+            <point key="canvasLocation" x="-1806" y="-548"/>
         </view>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SZt-1T-SZp">
             <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
@@ -54,13 +63,13 @@
                 <fragment content="金占军小伙伴">
                     <attributes>
                         <color key="NSColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                        <font key="NSFont" metaFont="system" size="17"/>
                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                     </attributes>
                 </fragment>
                 <fragment content=" ">
                     <attributes>
-                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                        <font key="NSFont" metaFont="system" size="17"/>
                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                     </attributes>
                 </fragment>
@@ -72,20 +81,20 @@
                 </fragment>
                 <fragment content=" ">
                     <attributes>
-                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                        <font key="NSFont" metaFont="system" size="17"/>
                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                     </attributes>
                 </fragment>
                 <fragment content="发布微博">
                     <attributes>
                         <color key="NSColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                        <font key="NSFont" metaFont="controlContent"/>
                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                     </attributes>
                 </fragment>
             </attributedString>
             <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-3288" y="-398"/>
+            <point key="canvasLocation" x="-3304" y="-435"/>
         </label>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6QF-ul-rdw">
             <rect key="frame" x="0.0" y="0.0" width="45" height="35"/>
