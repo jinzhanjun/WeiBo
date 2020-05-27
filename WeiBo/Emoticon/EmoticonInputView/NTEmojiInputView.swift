@@ -105,6 +105,32 @@ extension EmojiModel {
 extension NTEmojiInputView: NTEmojiCollectionCellDelegate {
     func emojiCollectionCellDidClicked(cell: NTEmojiCollectionCell, emojiModel: EmojiModel?) {
         
+        // 执行点击表情闭包
         emojiClickClosure?(emojiModel)
+        // 如果没有模型，就直接返回，什么都不做
+        guard let emojiModel = emojiModel else {
+            return
+        }
+        
+        // 将模型添加到模型数组
+        if !emoticonModel[0].emojiModelArray.contains(emojiModel) {
+            emoticonModel[0].emojiModelArray.append(emojiModel)
+        }
+        
+        // 根据表情点击次数，从大到小重新排序表情位置
+        emoticonModel[0].emojiModelArray.sort { $0.times > $1.times }
+        
+        // 获取点击表情所在的 indexPath
+        guard let indexPath = emoticonCollectionView.indexPath(for: cell )
+            else { return }
+        
+        // 重新加载collectionView中最近表情的数据
+        // 如果点击的是最近表情的分组，那么就不立刻重新加载数据
+        if indexPath.section != 0 {
+            // 重新加载最近表情的分组
+            emoticonCollectionView.reloadItems(at: [indexPath])
+        }
+        
+        
     }
 }

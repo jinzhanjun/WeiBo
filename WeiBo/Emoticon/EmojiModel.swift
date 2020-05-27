@@ -39,6 +39,9 @@ class EmojiModel: NSObject {
     /// 表情包名称
     var packageName: String?
     
+    /// 点击次数
+    var times: Int = 0
+    
     override var description: String {
         return yy_modelDescription()
     }

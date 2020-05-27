@@ -45,6 +45,9 @@ class WBComposeController: UIViewController, UITextViewDelegate {
         button.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .disabled)
         button.setBackgroundImage(UIImage(named: "common_button_orange"), for: .normal)
         button.setBackgroundImage(UIImage(named: "common_button_orange_highlighted"), for: .highlighted)
+        
+        // 点击发送微博给新浪服务器
+        button.addTarget(self, action: #selector(sendStatus), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
         
     }()
@@ -73,10 +76,6 @@ class WBComposeController: UIViewController, UITextViewDelegate {
             selector: #selector(keyBoardWillChange(n:)),
             name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil)
-        
-        
-        
-        
         
         let v = NTEmojiInputView.inputView { [weak self] (emojiModel) in
             
@@ -137,6 +136,19 @@ class WBComposeController: UIViewController, UITextViewDelegate {
         sendBarButtonItem.isEnabled = false
     }
     
+    /// 点击发送监听方法
+    @objc private func sendStatus() {
+        
+        let str = textView.attributedText.string
+        let nsStr = NSString(string: str)
+        let textNSStr = nsStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let parameters = ["status": textNSStr ?? ""]
+        
+        WBNetWorkingController.shared.statusUpdate(parameters: parameters) { (json, isSuccess) in
+            print(json)
+        }
+    }
+    
     /// 取消撰写微博
     @objc private func back() {
         /// 正在展现的控制器（也就是自己）消失
@@ -160,6 +172,7 @@ class WBComposeController: UIViewController, UITextViewDelegate {
         }
     }
     
+    /// textView内容发生变化时调用
     func textViewDidChange(_ textView: UITextView) {
         sendBarButtonItem.isEnabled = textView.hasText
         placeHolderLabel.isHidden = textView.hasText

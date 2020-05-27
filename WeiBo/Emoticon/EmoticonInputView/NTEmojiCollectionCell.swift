@@ -11,12 +11,17 @@ import UIKit
 protocol NTEmojiCollectionCellDelegate: NSObjectProtocol {
     /// 点击表情按钮代理方法
     func emojiCollectionCellDidClicked(cell: NTEmojiCollectionCell, emojiModel: EmojiModel?) -> Void
+    
+    
 }
 
 class NTEmojiCollectionCell: UICollectionViewCell {
     
     /// 代理属性 (需要使用 weak， 否则会循环引用，造成内存泄漏！)
     weak var delegate: NTEmojiCollectionCellDelegate?
+    
+    /// 懒加载只加载一次，存储在常量区，每次调用同一个内存地址。
+    lazy var tipImageView: NTEmojiTipView = NTEmojiTipView()
     
     /// 两侧边距
     let sideMargin = 8
@@ -34,6 +39,21 @@ class NTEmojiCollectionCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        
+        
+        guard let window = newWindow else {
+            return
+        }
+        
+        // 添加表情提示视图
+        window.addSubview(tipImageView)
+        // 隐藏表情提示视图
+        tipImageView.isHidden = true
+    }
+    
     
     /// 表情模型数组
     var emojiModels: [EmojiModel]? {
@@ -63,7 +83,7 @@ class NTEmojiCollectionCell: UICollectionViewCell {
         let colum = 7
         // 计算单个表情 size
         let width = (bounds.width - CGFloat(2 * sideMargin)) / CGFloat(colum)
-        
+                
         for i in 0...20 {
             
             let btn = UIButton()
@@ -81,9 +101,20 @@ class NTEmojiCollectionCell: UICollectionViewCell {
             btn.frame = CGRect(x: x, y: y, width: width, height: width)
             
             contentView.addSubview(btn)
+            // 隐藏按钮
             btn.isHidden = true
             // 设置监听方法
-            btn.addTarget(self, action: #selector(removeBtnClicked(button:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(emojiBtnClicked(button:)), for: .touchUpInside)
+            
+            // 除去最后一个按钮，删除按钮不添加长按手势
+            if i != 20 {
+                /// 添加长按手势
+                let longPress = UILongPressGestureRecognizer(target: self, action: #selector(emojiLongPressed(gesture:)))
+                // 长按时间
+                longPress.minimumPressDuration = 0.1
+                // 添加手势
+                btn.addGestureRecognizer(longPress)
+            }
         }
         
         removeBtn = contentView.subviews.last as? UIButton
@@ -101,13 +132,52 @@ class NTEmojiCollectionCell: UICollectionViewCell {
         
     }
     
-    /// 点击删除按钮
-    @objc private func removeBtnClicked(button: UIButton) {
+    /// 表情长按
+    @objc private func emojiLongPressed(gesture: UILongPressGestureRecognizer) {
+        // 首先隐藏表情提示视图
+        tipImageView.isHidden = true
         
+        
+        switch gesture.state {
+        case .began, .changed:
+            
+            // 设置表情提示视图的位置
+            // 识别点击的表情
+            let location = gesture.location(in: self)
+            
+            // 遍历表情(一定要用contentView)
+            let selectedEmoji = contentView.subviews.filter{ $0.frame.contains(location) }
+            
+            guard let emojiButton = selectedEmoji.first as? UIButton else { return }
+            
+            // 转换坐标系
+            let center = self.convert(emojiButton.center, to: window)
+            // 设置坐标位置
+            tipImageView.center = center
+            // 设置模型
+            // 如果不是删除按钮
+            if emojiButton.tag < emojiModels?.count ?? 0 {
+
+                // 显示表情提示视图
+                tipImageView.isHidden = false
+                tipImageView.emojiModel = emojiModels?[emojiButton.tag]
+            }
+        
+        default:
+            break
+        }
+    }
+    
+    /// 点击表情按钮
+    @objc private func emojiBtnClicked(button: UIButton) {
         let tag = button.tag
         /// 表情模型
         var emojiModel: EmojiModel?
         if tag < 20 {
+            
+            // 记录表情的点击次数
+            emojiModels?[tag].times += 1
+            
             // 表情按钮
             emojiModel = emojiModels?[tag]
         } else {

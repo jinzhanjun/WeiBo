@@ -12,6 +12,12 @@ import YYModel
 
 extension WBNetWorkingController {
     
+    /// 封装发布微博
+    func statusUpdate(parameters: [String: String]?, complete: @escaping (_ json: Any?, _ isSuccess: Bool) -> Void) {
+        
+        tokenRequest(method: .POST, requestUrlString: StatusUpdateUrl, parameters: parameters, complete: complete)
+    }
+    
     func requestUnreadCount(completion: @escaping(Int) -> Void) {
         
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"

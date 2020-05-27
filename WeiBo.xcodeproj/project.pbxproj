@@ -68,6 +68,7 @@
 		7BA2D436246D482D00D7F357 /* EmojiListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2D432246D482D00D7F357 /* EmojiListModel.swift */; };
 		7BA2D438246D610600D7F357 /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2D437246D610600D7F357 /* FFLabel.swift */; };
 		7BAB3CFC246EDF0B007257FA /* WBComposeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BAB3CFB246EDF0B007257FA /* WBComposeController.xib */; };
+		7BBA1ED4247BC34500F883DD /* NTEmojiTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA1ED3247BC34500F883DD /* NTEmojiTipView.swift */; };
 		7BC1682024647011009E29F2 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC1681F24647011009E29F2 /* WBComposeView.swift */; };
 		7BC1682224647138009E29F2 /* WBComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC1682124647138009E29F2 /* WBComposeView.xib */; };
 		7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE44C42244BF455007F035B /* WBNewVersionView.swift */; };
@@ -178,6 +179,7 @@
 		7BA2D432246D482D00D7F357 /* EmojiListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiListModel.swift; sourceTree = "<group>"; };
 		7BA2D437246D610600D7F357 /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFLabel.swift; sourceTree = "<group>"; };
 		7BAB3CFB246EDF0B007257FA /* WBComposeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeController.xib; sourceTree = "<group>"; };
+		7BBA1ED3247BC34500F883DD /* NTEmojiTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTEmojiTipView.swift; sourceTree = "<group>"; };
 		7BC1681F24647011009E29F2 /* WBComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeView.swift; sourceTree = "<group>"; };
 		7BC1682124647138009E29F2 /* WBComposeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeView.xib; sourceTree = "<group>"; };
 		7BE44C42244BF455007F035B /* WBNewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewVersionView.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 			children = (
 				7B8433B9247446C300D8CC6C /* NTEmojiInputView.xib */,
 				7B8433BA247446C300D8CC6C /* NTEmojiCollectionCell.swift */,
+				7BBA1ED3247BC34500F883DD /* NTEmojiTipView.swift */,
 				7B8433BB247446C300D8CC6C /* EmoticonCollectionViewLayout.swift */,
 				7B8433BC247446C300D8CC6C /* NTEmojiInputView.swift */,
 				7B8433BD247446C300D8CC6C /* NTEmoticonPackageBar.swift */,
@@ -626,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BFDAA942455DB550066CD3C /* WBStatusPictureView.swift in Sources */,
+				7BBA1ED4247BC34500F883DD /* NTEmojiTipView.swift in Sources */,
 				7B8433C0247446C300D8CC6C /* EmoticonCollectionViewLayout.swift in Sources */,
 				7B5D18B1244B368200EE7CF8 /* WBNavButton.swift in Sources */,
 				7BE44C43244BF455007F035B /* WBNewVersionView.swift in Sources */,

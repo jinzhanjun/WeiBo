@@ -26,6 +26,9 @@ let OauthUrl: String = "https://api.weibo.com/oauth2/authorize"
 // 用户信息接口
 let UserInfoUrl: String = "https://api.weibo.com/2/users/show.json"
 
+// 发微博请求 Url
+let StatusUpdateUrl: String = "https://api.weibo.com/2/statuses/update.json"
+
 /// 微博正文字体
 let statusFont = UIFont.systemFont(ofSize: 15)
 

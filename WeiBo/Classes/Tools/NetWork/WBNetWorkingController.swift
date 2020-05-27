@@ -27,10 +27,9 @@ class WBNetWorkingController: AFHTTPSessionManager {
         return userAccount.access_token != nil
     }
 
+
     // 封装一个专门做新浪微博请求的方法
-    func tokenRequest(requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
-        
-        
+    func tokenRequest(method: RequestMethod = .GET, requestUrlString: String, parameters: [String: String]?, complete: @escaping(_ json: Any?, _ isSuccess: Bool) -> Void) {
         
         guard let token = userAccount.access_token
             else {
@@ -50,7 +49,9 @@ class WBNetWorkingController: AFHTTPSessionManager {
         }
         
         parameters!["access_token"] = token
-        request(URLString: requestUrlString, parameters: parameters!, complete: complete)
+        
+        request(method: method, URLString: requestUrlString, parameters: parameters!, complete: complete)
+        
     }
     
     // 销毁
@@ -83,12 +84,10 @@ class WBNetWorkingController: AFHTTPSessionManager {
         if method == .GET {
             // get 方法
             get(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
-            
-            
-            
         } else {
             // post 方法
             post(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
+            
             
         }
     }

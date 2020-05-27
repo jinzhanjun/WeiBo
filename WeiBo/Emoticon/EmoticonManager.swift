@@ -16,6 +16,15 @@ class EmoticonManager {
     /// 懒加载表情包模型数组
     lazy var emojiListModel: [EmojiListModel] = [EmojiListModel]()
     
+    /// 表情bundle
+    var bundle: Bundle? {
+        get {
+            let bundlePath = Bundle.main.path(forResource: "HMEmoticon.bundle", ofType: nil)
+            return Bundle(path: bundlePath!)
+            
+        }
+    }
+    
     /// 不允许外币调用初始化方法，只能通过单例方式访问
     private init() {
         self.fetchEmojis()
